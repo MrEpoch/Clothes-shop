@@ -64,7 +64,7 @@
             </div>
         </div>
     </section>
-    <div class="min-h-screen flex flex-col mt-[5rem] w-full">
+    <div class="min-h-screen flex items-center justify-center flex-col mt-[5rem] w-full">
         <div id="great-deal" class="px-4 align-center min-h-[200px] w-[calc(100%-75px)] items-center flex flex-col justify-center
             h-full relative mx-auto max-w-screen-lg lg:py-24">
             <img class="w-full z-[-1] min-h-full h-full object-cover absolute" src={Sale} alt="Buying Clothes" />
