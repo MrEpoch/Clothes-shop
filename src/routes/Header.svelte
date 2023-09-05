@@ -15,7 +15,7 @@
 <nav class="dark:bg-black/10 dark:text-white/90">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <a href="/" class="flex items-center">
-        <div class="h-24 mr-3 w-24 scale-125">
+        <div class="sm:h-24 h-12 w-12 mr-3 sm:w-24 scale-125">
             <img src={$theme === "dark" ? LogoDark : Logo} class="h-full w-full" alt="Alexandr Stenčuk Logo" />
         </div>
     </a>
