@@ -53,13 +53,15 @@
                     <a href={contact.content}
                         target="_blank"
                         rel="noreferrer"
-                        class="flex flex-col gap-3 items-center h-full w-full justify-center min-w-[16rem] bg-gray-700 aspect-video rounded-xl">
+                        class="flex flex-col gap-3 items-center h-full w-full 
+                        justify-center min-w-[16rem] bg-gray-100 dark:bg-gray-700 aspect-video rounded-xl">
                         <svelte:component class="w-8 h-8" this={contact.svg} size="24" />
                         <p class="text-xl font-bold">{contact.type}</p>
                     </a>
                 {:else}
                     <button on:click={addedToClipboard} use:clipboard={contact.content} 
-                    class="flex items-center flex-col gap-3 justify-center h-full w-full bg-gray-700 min-w-[16rem] aspect-video rounded-xl">
+                        class="flex items-center flex-col gap-3 justify-center h-full w-full 
+                        dark:bg-gray-700 bg-gray-100 min-w-[16rem] aspect-video rounded-xl">
                         <svelte:component class="w-8 h-8" this={contact.svg} size="24" />
                         <p class="text-xl font-bold">{contact.type}</p>
                     </button>

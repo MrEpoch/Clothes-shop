@@ -69,10 +69,10 @@
             h-full relative mx-auto max-w-screen-lg lg:py-24">
             <img class="w-full z-[-1] min-h-full h-full object-cover absolute" src={Sale} alt="Buying Clothes" />
             <div class="min-h-full w-full flex flex-col items-center justify-around">
-                <h2 class="mb-4 text-4xl font-bold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+                <h2 class="mb-4 text-center text-2xl sm:text-4xl font-bold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
                     {ad_info.title}
                 </h2>
-                <p class="mb-8 text-lg dark:text-white font-bold lg:text-xl sm:px-16 lg:px-48">
+                <p class="mb-8  text-center text-lg dark:text-white font-bold lg:text-xl sm:px-16 lg:px-48">
                     {ad_info.subtitle}
                 </p>
                 <button class="bg-gradient-to-r from-violet-400 to-pink-400
