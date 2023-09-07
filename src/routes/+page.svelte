@@ -39,7 +39,7 @@
 <div class="min-h-screen flex flex-col items-center justify-center dark:bg-black/10 dark:text-white/90">
     <div class={`min-h-screen flex w-full absolute z-[-1] top-0 bg-gray-200 dark:bg-gray-800 ${isAnimating ? "animate-pulse" : ""}`}>
         <img on:load={() => isAnimating = false} use:lazyLoad={BuyingClothes} alt="Buying Clothes" class="
-         opacity-0 min-h-full w-full object-cover" />
+         opacity-0 min-h-full w-full object-cover dark:brightness-7 dark:brightness-755" />
     </div>
     <section class="mt-[10rem] min-h-screen flex w-full p-10 flex-col">
         <div class="py-8 bg-white/70 dark:bg-black/50 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
@@ -67,12 +67,12 @@
     <div class="min-h-screen flex items-center justify-center flex-col mt-[5rem] w-full">
         <div id="great-deal" class="px-4 align-center min-h-[200px] w-[calc(100%-75px)] items-center flex flex-col justify-center
             h-full relative mx-auto max-w-screen-lg lg:py-24">
-            <img class="w-full z-[-1] min-h-full h-full object-cover absolute" src={Sale} alt="Buying Clothes" />
+            <img class="w-full z-[-1] min-h-full brightness-75 h-full object-cover absolute" src={Sale} alt="Buying Clothes" />
             <div class="min-h-full w-full flex flex-col items-center justify-around">
-                <h2 class="mb-4 text-center text-2xl sm:text-4xl font-bold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+                <h2 class="mb-4 text-center text-2xl sm:text-4xl font-bold tracking-tight leading-none text-white  md:text-5xl lg:text-6xl dark:text-white">
                     {ad_info.title}
                 </h2>
-                <p class="mb-8  text-center text-lg dark:text-white font-bold lg:text-xl sm:px-16 lg:px-48">
+                <p class="mb-8  text-center text-lg text-white font-bold lg:text-xl sm:px-16 lg:px-48">
                     {ad_info.subtitle}
                 </p>
                 <button class="bg-gradient-to-r from-violet-400 to-pink-400

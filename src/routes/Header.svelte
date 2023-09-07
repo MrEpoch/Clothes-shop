@@ -2,6 +2,7 @@
     import Logo from "assets/logo.png";
     import LogoDark from "assets/VelvetLine-bg.png";
     import { theme } from "lib/store";
+    import { UserIcon, SunIcon, ShoppingCartIcon } from "svelte-feather-icons";
 
     let hidden = true;
     export let showCart: any;
@@ -42,14 +43,20 @@
                 py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 
                 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 
                 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                <svg class="w-8 dark:text-white text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Cart</title><path fill="currentColor" d="M17,18A2,2 0 0,1 19,20A2,2 0 0,1 17,22C15.89,22 15,21.1 15,20C15,18.89 15.89,18 17,18M1,2H4.27L5.21,4H20A1,1 0 0,1 21,5C21,5.17 20.95,5.34 20.88,5.5L17.3,11.97C16.96,12.58 16.3,13 15.55,13H8.1L7.2,14.63L7.17,14.75A0.25,0.25 0 0,0 7.42,15H19V17H7C5.89,17 5,16.1 5,15C5,14.65 5.09,14.32 5.24,14.04L6.6,11.59L3,4H1V2M7,18A2,2 0 0,1 9,20A2,2 0 0,1 7,22C5.89,22 5,21.1 5,20C5,18.89 5.89,18 7,18M16,11L18.78,6H6.14L8.5,11H16Z" /></svg>
+                <ShoppingCartIcon class="w-8 dark:text-white font-bold text-black" />
             </button>
             <button on:click={SwitchTheme} class="flex items-center md:justify-center w-full text-start 
                 py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 
                 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 
                 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                <svg class="w-8 dark:text-white text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Dark Mode</title><path fill="currentColor" d="M12,18C11.11,18 10.26,17.8 9.5,17.45C11.56,16.5 13,14.42 13,12C13,9.58 11.56,7.5 9.5,6.55C10.26,6.2 11.11,6 12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18M20,8.69V4H15.31L12,0.69L8.69,4H4V8.69L0.69,12L4,15.31V20H8.69L12,23.31L15.31,20H20V15.31L23.31,12L20,8.69Z" /></svg>
+                <SunIcon class="w-8 dark:text-white font-bold text-black" />
             </button>
+            <a href="/account" class="flex items-center md:justify-center w-full text-start 
+                py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 
+                md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 
+                dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                <UserIcon class="w-8 dark:text-white font-bold text-black" />
+            </a>
         </ul>
     </div>
   </div>

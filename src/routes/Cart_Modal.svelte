@@ -1,44 +1,65 @@
 <script lang="ts">
 	import { cart } from "lib/store";
-	import CartItem from "./Cart_Item.svelte";
+	import CartItems from "components/CartItems.svelte";
 
     export let showCart: any;
 </script>
 
-<div id="defaultModal" tabindex="-1" aria-hidden="true" class="fixed top-0 
-    left-0 right-0 z-50 w-full flex items-center justify-center
-    overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] min-h-full">
-    <button on:click={showCart} class="absolute top-0 left-0 cursor-default w-full min-h-full bg-black/50"></button>
-    <div class="relative w-full max-w-2xl max-h-full">
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                    Shopping Cart
-                </h3>
-                <button on:click={showCart} type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="defaultModal">
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                    </svg>
-                    <span class="sr-only">Close modal</span>
-                </button>
+<div class="relative z-10" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+      <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+      <div class="fixed inset-0 overflow-hidden">
+        <div class="absolute inset-0 overflow-hidden">
+          <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+            <div class="pointer-events-auto w-screen max-w-md">
+              <div class="flex h-full flex-col overflow-y-scroll dark:bg-gray-900 dark:text-white bg-white shadow-xl">
+                <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+                  <div class="flex items-start justify-between">
+                    <h2 class="text-lg font-medium dark:text-gray-100 text-gray-900" id="slide-over-title">Shopping cart</h2>
+                    <div class="ml-3 flex h-7 items-center">
+                          <button on:click={showCart} type="button" class="relative -m-2 p-2 text-gray-400 hover:text-gray-500">
+                            <span class="absolute -inset-0.5"></span>
+                            <span class="sr-only">Close panel</span>
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                    </div>
+                  </div>
+
+                  <div class="mt-8">
+                    <div class="flow-root">
+                      <ul role="list" class="-my-6 divide-y dark:divide-gray-700 divide-gray-200">
+                          {#each $cart as item}
+                              <CartItems order={item} />
+                          {/each}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
+                  <div class="flex justify-between text-base font-medium dark:text-gray-100 text-gray-900">
+                    <p>Subtotal</p>
+                    <p>${$cart.reduce((acc, item) => acc + item.quantity * item.price, 0)}</p>
+                  </div>
+                  <p class="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
+                  <div class="mt-6">
+                    <a href="/payment" class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Checkout</a>
+                  </div>
+                  <div class="mt-6 flex justify-center text-center text-sm text-gray-500">
+                    <p>
+                      or
+                      <button type="button" on:click={showCart} class="font-medium text-indigo-600 hover:text-indigo-500">
+                        Continue Shopping
+                        <span aria-hidden="true"> &rarr;</span>
+                      </button>
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="p-6 space-y-6">
-                {#each [1] as cart_item}
-                    <CartItem {cart_item} />
-                {/each}
-            </div>
-            <div class="flex items-center justify-end p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                <button on:click={showCart} data-modal-hide="defaultModal" type="button" 
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4
-                    focus:outline-none focus:ring-blue-300 font-medium rounded-lg 
-                    text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 
-                    dark:focus:ring-blue-800">Proceed To Pay</button>
-                <button on:click={showCart} data-modal-hide="defaultModal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 
-                    focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 
-                    text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 
-                    dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 
-                    dark:focus:ring-gray-600">Continue Shopping</button>
-            </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+

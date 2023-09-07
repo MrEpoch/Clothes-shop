@@ -31,6 +31,10 @@
 	"dependencies": {
 		"@skeletonlabs/skeleton": "^2.0.0",
 		"@skeletonlabs/tw-plugin": "^0.1.0",
+		"@supabase/auth-helpers-sveltekit": "^0.10.2",
+		"@supabase/auth-ui-shared": "^0.1.6",
+		"@supabase/auth-ui-svelte": "^0.2.4",
+		"@supabase/supabase-js": "^2.33.1",
 		"autoprefixer": "^10.4.15",
 		"postcss": "^8.4.29",
 		"svelte-feather-icons": "^4.0.1",
