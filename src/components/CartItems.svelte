@@ -62,7 +62,8 @@
       <p class="mt-1 text-sm text-gray-500">{order.description}</p>
     </div>
     <div class="flex flex-1 items-end justify-between text-sm">
-      <input type="number" on:change={quantityUpdate} class="text-gray-500" bind:value={quantity} />
+        <input type="number" on:change={quantityUpdate} class="
+        max-w-[100px] w-full text-gray-500" bind:value={quantity} />
       <div class="flex">
           <button on:click={updateCart} type="button" class="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
       </div>

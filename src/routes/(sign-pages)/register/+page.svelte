@@ -1,16 +1,30 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+
     export let data;
-    let { supabase } = data;
-    $: ({ supabase } = data);
+    let { supabase, url } = data;
+    $: ({ supabase, url } = data);
+
 
     let email: string;
+    let error: string;
     let password: string;
+    let confirm_password: string;
 
     const handle_register = async () => {
-        await supabase.auth.signUp({
+        console.log("handle");
+        if (password !== confirm_password) return;
+        const val = await supabase.auth.signUp({
             email,
-            password
+            password,
+            options: {
+                emailRedirectTo: `${location.origin}/auth/callback`
+            }
         });
+        if (val.error) return;
+        console.log(val);
+
+        await goto('/');
     };
 
     const handle_github_register = async () => {
@@ -51,13 +65,14 @@
 			/></svg
 		>
 		<div class="flex flex-col gap-[1rem]">
-			<label for="name">Username</label>
+			<label for="email">Email</label>
 			<input
-				type="text"
-				name="fullName"
+				type="email"
+				name="email"
 				class="dark:bg-black/10 outline-none border-[1px] border-gray-600/50 rounded-[10px] p-3"
 				id="name"
-				placeholder="Full Name"
+				placeholder="Email"
+                bind:value={email}
                 required
                 minlength="3"
 			/>
@@ -66,7 +81,8 @@
 			<label for="password">Password</label>
 			<input
 				type="password"
-				name="password"
+                name="password"
+                bind:value={password}
 				class="dark:bg-black/10 outline-none border-[1px] border-gray-600/50 rounded-[10px] p-3"
 				id="password"
 				placeholder="Password"
@@ -76,7 +92,8 @@
 		<div class="flex flex-col gap-[1rem]">
 			<label for="password_confirmation">Confirm Password</label>
 			<input
-				type="password"
+                type="password"
+                bind:value={confirm_password}
 				name="password_confirmation"
 				class="dark:bg-black/10 outline-none border-[1px] border-gray-600/50 rounded-[10px] p-3"
 				id="password_confirmation"

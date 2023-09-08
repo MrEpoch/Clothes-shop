@@ -9,9 +9,9 @@
       <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
       <div class="fixed inset-0 overflow-hidden">
         <div class="absolute inset-0 overflow-hidden">
-          <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+          <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full sm:pl-10">
             <div class="pointer-events-auto w-screen max-w-md">
-              <div class="flex h-full flex-col overflow-y-scroll dark:bg-gray-900 dark:text-white bg-white shadow-xl">
+              <div class="flex max-[600px]:p-4 h-full flex-col overflow-y-scroll dark:bg-gray-900 dark:text-white bg-white shadow-xl">
                 <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                   <div class="flex items-start justify-between">
                     <h2 class="text-lg font-medium dark:text-gray-100 text-gray-900" id="slide-over-title">Shopping cart</h2>

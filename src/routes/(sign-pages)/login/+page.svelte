@@ -51,20 +51,22 @@
 			/></svg
 		>
 		<div class="flex flex-col gap-[1rem]">
-			<label for="username">Username</label>
+			<label for="email">Email</label>
 			<input
-				type="text"
-                name="username"
+				type="email"
+                name="email"
                 minlength="3"
+                bind:value={email}
 				class="dark:bg-black/10 outline-none border-[1px] border-gray-600/50 rounded-[10px] p-3"
-				placeholder="Username"
+				placeholder="Email"
 			/>
 		</div>
 		<div class="flex flex-col gap-[1rem]">
 			<label for="password">Password</label>
 			<input
 				type="password"
-				name="password"
+                name="password"
+                bind:value={password}
 				class="dark:bg-black/10 outline-none border-[1px] border-gray-600/50 rounded-[10px] p-3"
 				id="password"
 				placeholder="Password"
