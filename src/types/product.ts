@@ -1,6 +1,4 @@
-
-
 export interface CategoryLanding {
-    category: string,
-    img: string
+	category: string;
+	img: string;
 }
