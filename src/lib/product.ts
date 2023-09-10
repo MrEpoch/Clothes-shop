@@ -18,6 +18,7 @@ export const getProduct = async (product_id: string) => {
 
 export const getInitialProducts = async (page: number) => {
     try {
+        console.log("red");
         const products = await prisma.product.findMany({
             take: 9,
             skip: 9 * page,
@@ -25,6 +26,7 @@ export const getInitialProducts = async (page: number) => {
                 createdAt: 'desc'
             }
         });
+        console.log(products);
         return products;
     } catch (error) {
         console.log(error);
@@ -34,6 +36,7 @@ export const getInitialProducts = async (page: number) => {
 
 export const getSearchProducts = async (search: string, page: number) => {
     try {
+        console.log("search");
         const products = await prisma.product.findMany({
             where: {
                 name: {

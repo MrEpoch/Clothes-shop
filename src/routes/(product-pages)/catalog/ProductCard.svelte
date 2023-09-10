@@ -1,22 +1,22 @@
 <script lang="ts">
 	import type { categories } from 'lib/product';
 
-	import type { TempProduct } from 'types/product';
+	import type { Product } from 'types/product';
 
-	export let product: TempProduct;
+	export let product: Product;
 	export let selected: categories;
 
 	let hiddenModal = true;
-    console.log(product.image);
 </script>
 
 {#if product.category === selected}
 	<button
 		on:click={() => (hiddenModal = false)}
 		class="hover:brightness-90 product_container transition duration-300
-        aspect-[10/10] max-w-[300px] w-full"
+        aspect-[10/11] max-w-[300px] w-full overflow-hidden"
 	>
-		<img src={URL.createObjectURL(product.image)} alt="" class="w-full h-full object-cover min-h-5/4" />
+    <img src={product.image} alt="" class="w-full transition hover:duration-300 hover:transition duration-300 
+    hover:scale-[1.02] h-full object-cover min-h-5/4" />
 		<div class="p-4 dark:bg-gray-800/50 flex product_text w-full flex-col items-start">
 			<h2 class="text-xl font-semibold">{product.name}</h2>
 			<p class="text-gray-100">${product.price}</p>
@@ -63,7 +63,7 @@
 				</div>
                 <div class="p-6 space-y-6">
                         <div class="animate-pulse h-full w-full min-h-5/4"></div>
-                    <img src={URL.createObjectURL(product.image)} alt="" class="w-full h-full object-cover min-h-5/4" />
+                    <img src={product.image} alt="" class="w-full h-full object-cover min-h-5/4" />
                     <h3 class="text-2xl font-semibold">{product.name}</h3>
                     <p class="text-gray-500">{product.description}</p>
                 </div>
