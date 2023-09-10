@@ -16,6 +16,43 @@ export const getProduct = async (product_id: string) => {
 	}
 };
 
+export const getInitialProducts = async (page: number) => {
+    try {
+        const products = await prisma.product.findMany({
+            take: 9,
+            skip: 9 * page,
+            orderBy: {
+                createdAt: 'desc'
+            }
+        });
+        return products;
+    } catch (error) {
+        console.log(error);
+        throw redirect(303, '/');
+    }
+}
+
+export const getSearchProducts = async (search: string, page: number) => {
+    try {
+        const products = await prisma.product.findMany({
+            where: {
+                name: {
+                    contains: search
+                }
+            },
+            take: 9,
+            skip: 9 * page,
+            orderBy: {
+                createdAt: 'desc'
+            }
+        });
+        return products;
+    } catch (error) {
+        console.log(error);
+        throw redirect(303, '/');
+    }
+}
+
 export enum categories {
 	women = 'women',
 	men = 'men',

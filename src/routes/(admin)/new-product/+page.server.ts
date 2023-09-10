@@ -51,7 +51,7 @@ export const actions: Actions = {
 				});
 			}
 
-			const new_image_name = Math.random().toString(36).substring(2, 15) + "." + img_ext;
+			const new_image_name = Math.random().toString(36).substring(2, 15) + '.' + img_ext;
 			if (!['jpg', 'jpeg', 'png', 'webp'].includes(img_ext)) {
 				return fail(400, {
 					error: true,
@@ -59,42 +59,42 @@ export const actions: Actions = {
 				});
 			}
 
-            const newImage = await image.arrayBuffer();
+			const newImage = await image.arrayBuffer();
 
-            const { error } = await supabase.storage.from('velvet-line').upload(`images/${new_image_name}`, newImage, {
-                cacheControl: '3600',
-            });
+			const { error } = await supabase.storage
+				.from('velvet-line')
+				.upload(`images/${new_image_name}`, newImage, {
+					cacheControl: '3600'
+				});
 
-            console.log(error);
+			if (error)
+				return fail(500, {
+					error: true,
+					message: 'Error uploading image'
+				});
 
-            if (error) return fail(500, {
-                error: true,
-                message: 'Something went wrong'
-            });
+			if (Number.isNaN(Number.parseFloat(price.data))) {
+				return fail(400, {
+					error: true,
+					message: 'You must provide a valid price'
+				});
+			}
 
-            if (Number.isNaN(Number.parseFloat(price.data))) {
-			    return fail(400, {
-                    error: true,
-                    message: 'You must provide a valid price'    			    
-			    });
-            }
-
-		    const new_price: number = parseFloat(parseFloat(price.data).toFixed(2));
+			const new_price: number = parseFloat(parseFloat(price.data).toFixed(2));
 
 			await createProduct(
 				name.data as string,
 				description.data as string,
 				category.data as categories,
-                new_price,
+				new_price,
 				stripeId.data as string,
 				new_image_name as string
 			);
-            console.log("end");
 		} catch (error) {
 			console.log(error);
 			return fail(500, {
-                error: true,
-                message: 'Something went wrong'
+				error: true,
+				message: 'Something went wrong'
 			});
 		}
 		throw redirect(303, '/catalog');
