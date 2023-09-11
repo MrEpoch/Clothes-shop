@@ -4,7 +4,7 @@ import { makeOrder } from '$lib/order';
 import { countries } from './countries';
 
 export const actions: Actions = {
-	default: async ({ locals: { getSession }, request }) => {
+	default: async ({ locals: { getSession }, request, cookies }) => {
 		const data = await request.formData();
 
 		const standardString = z.string().min(2);
@@ -42,9 +42,19 @@ export const actions: Actions = {
 		}
 
 		try {
+
+            // # I SHOULD BUILT THIS BORDER TO ONLY REDIS DATABASE SO IN CASE USER GIVES HALFWAY IT WILL SIMPLY DELETE ITSELF
+            // ## WHEN ORDER IS SUCCESS I WILL SIMPLY TAKE COOKIES OR HIS LATEST ORDER TO IN REDIS WHICH WILL BE WRITTEN TO NORMAL DB
+            
+            const cart_items = JSON.parse(cart);
+
+            if (cart_items.length === 0) {
+                return fail(400, { message: 'Order failed', failed: true });
+            }
+
 			const order = await makeOrder(
 				await getSession(),
-				JSON.parse(cart),
+                cart_items,
 				email.data,
 				phone.data,
 				address.data,
@@ -57,8 +67,14 @@ export const actions: Actions = {
 				return fail(400, { message: 'Order failed', failed: true });
 			}
 
+            cookies.set('order', order.id, {
+                path: '/',
+                httpOnly: true,
+                maxAge: 60 * 60 * 6
+            });
+
 			return {
-				url: order,
+				url: order.url,
 				failed: false,
 				success: true
 			};

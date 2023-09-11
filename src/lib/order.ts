@@ -99,9 +99,33 @@ export const makeOrder = async (
             }
 		}
 
-		return session.url;
+        return {
+            url: session.url,
+            id: order.id
+        }
 	} catch (e) {
 		console.log(e);
 		return null;
 	}
 };
+
+export const deleteOrder = async (orderId: string) => {
+    try {
+        await prisma.orderItem.deleteMany({
+            where: {
+                orderId: orderId
+            }
+        })
+
+        await prisma.order.delete({
+            where: {
+                id: orderId
+            }
+        });
+
+        return true;
+    } catch (e) {
+        console.log(e);
+        return null;
+    }
+}

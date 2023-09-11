@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/bin/node /usr/bin/yarn add zod
+  /usr/bin/node /usr/bin/yarn add @upstash/redis
 
 PATH: 
   /home/alex/google-cloud-sdk/bin:/home/alex/.local/share/nvim/mason/bin:/home/alex/google-cloud-sdk/bin:/home/alex/google-cloud-sdk/bin:/home/alex/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/opt/plan9/bin:/var/lib/snapd/snap/bin:/opt/plan9/bin

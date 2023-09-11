@@ -36,6 +36,7 @@
 		"@supabase/auth-ui-shared": "^0.1.6",
 		"@supabase/auth-ui-svelte": "^0.2.4",
 		"@supabase/supabase-js": "^2.33.1",
+		"@upstash/redis": "^1.22.0",
 		"autoprefixer": "^10.4.15",
 		"postcss": "^8.4.29",
 		"prisma": "^5.2.0",

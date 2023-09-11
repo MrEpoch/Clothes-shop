@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import type { categories } from 'lib/product';
 	import { cart } from 'lib/store';
 
@@ -21,6 +22,20 @@
 			return [...c, cartItem];
 		});
 	}
+
+    function addToCartAndPay() {
+        cart.update((c) => {
+            const exists = c.find((cartItem) => cartItem.id === product.id);
+            if (exists) {
+                exists.quantity += 1;
+                return [...c];
+            }
+            const cartItem = { ...product, quantity: 1 };
+            return [...c, cartItem];
+        })
+        goto("/payment");
+    }
+
 </script>
 
 {#if product.category === selected}
@@ -96,7 +111,7 @@
 						>Add to Cart and Continue</button
 					>
 					<button
-						on:click={() => (hiddenModal = true)}
+						on:click={addToCartAndPay}
 						type="button"
 						class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
 						>Checkout</button
