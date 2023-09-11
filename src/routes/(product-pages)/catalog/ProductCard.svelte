@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { categories } from 'lib/product';
+	import { cart } from 'lib/store';
 
 	import type { Product } from 'types/product';
 
@@ -7,6 +8,19 @@
 	export let selected: categories;
 
 	let hiddenModal = true;
+
+	function addToCart() {
+		hiddenModal = true;
+		cart.update((c) => {
+			const exists = c.find((cartItem) => cartItem.id === product.id);
+			if (exists) {
+				exists.quantity += 1;
+				return [...c];
+			}
+			const cartItem = { ...product, quantity: 1 };
+			return [...c, cartItem];
+		});
+	}
 </script>
 
 {#if product.category === selected}
@@ -15,8 +29,12 @@
 		class="hover:brightness-90 product_container transition duration-300
         aspect-[10/11] max-w-[300px] w-full overflow-hidden"
 	>
-    <img src={product.image} alt="" class="w-full transition hover:duration-300 hover:transition duration-300 
-    hover:scale-[1.02] h-full object-cover min-h-5/4" />
+		<img
+			src={product.image}
+			alt=""
+			class="w-full transition hover:duration-300 hover:transition duration-300
+    hover:scale-[1.02] h-full object-cover min-h-5/4"
+		/>
 		<div class="p-4 dark:bg-gray-800/50 flex product_text w-full flex-col items-start">
 			<h2 class="text-xl font-semibold">{product.name}</h2>
 			<p class="text-gray-100">${product.price}</p>
@@ -27,16 +45,19 @@
 {#if !hiddenModal}
 	<div
 		tabindex="-1"
-        class="fixed top-0 left-0 right-0 z-50 
-        w-full p-4 overflow-x-hidden 
+		class="fixed top-0 left-0 right-0 z-50
+        w-full p-4 overflow-x-hidden
         flex items-center justify-center
         md:inset-0 h-[calc(100%-1rem)] min-h-full"
-    >
-        <button class="w-full max-h-full cursor-default bg-black/50 h-full z-[51] absolute" on:click={() => hiddenModal = true}></button>
+	>
+		<button
+			class="w-full max-h-full cursor-default bg-black/50 h-full z-[51] absolute"
+			on:click={() => (hiddenModal = true)}
+		/>
 		<div class="relative w-full max-w-2xl overflow-y-auto z-[52] max-h-full">
 			<div class="relative bg-white rounded-lg shadow dark:bg-gray-900">
 				<div class="flex items-start justify-between p-4 rounded-t dark:border-gray-600">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">{product.name}</h3>
+					<h3 class="text-xl font-semibold text-gray-900 dark:text-white">{product.name}</h3>
 					<button
 						type="button"
 						on:click={() => (hiddenModal = true)}
@@ -61,44 +82,40 @@
 						<span class="sr-only">Close modal</span>
 					</button>
 				</div>
-                <div class="p-6 space-y-6">
-                        <div class="animate-pulse h-full w-full min-h-5/4"></div>
-                    <img src={product.image} alt="" class="w-full h-full object-cover min-h-5/4" />
-                    <h3 class="text-2xl font-semibold">{product.name}</h3>
-                    <p class="text-gray-500">{product.description}</p>
-                </div>
-				<div
-					class="flex items-center justify-end p-6 space-x-2 rounded-b"
-				>
+				<div class="p-6 space-y-6">
+					<div class="animate-pulse h-full w-full min-h-5/4" />
+					<img src={product.image} alt="" class="w-full h-full object-cover min-h-5/4" />
+					<h3 class="text-2xl font-semibold">{product.name}</h3>
+					<p class="text-gray-500">{product.description}</p>
+				</div>
+				<div class="flex items-center justify-end p-6 space-x-2 rounded-b">
 					<button
-                        on:click={() => hiddenModal = true}
+						on:click={addToCart}
 						type="button"
 						class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
 						>Add to Cart and Continue</button
 					>
 					<button
-                        on:click={() => hiddenModal = true}
+						on:click={() => (hiddenModal = true)}
 						type="button"
 						class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
 						>Checkout</button
 					>
-
 				</div>
 			</div>
 		</div>
 	</div>
 {/if}
 
-
 <style lang="postcss">
-    .product_container:hover .product_text {
-        opacity: 1
-    }
+	.product_container:hover .product_text {
+		opacity: 1;
+	}
 
-    .product_text {
-        opacity: 0;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-    }
+	.product_text {
+		opacity: 0;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
 </style>

@@ -30,20 +30,6 @@
 		});
 	}
 
-	const unsubscribe = cart.subscribe(async (value) => {
-		try {
-			await fetch('/cart/update', {
-				method: 'POST',
-				body: JSON.stringify({
-					cart: value
-				})
-			});
-		} catch (err) {
-			console.log(err);
-		}
-	});
-
-	onDestroy(unsubscribe);
 </script>
 
 <li class="flex py-6">
@@ -58,19 +44,19 @@
 	<div class="ml-4 flex flex-1 flex-col">
 		<div>
 			<div class="flex justify-between text-base font-medium text-gray-900">
-				<h3>
+				<h3 class="dark:text-white">
 					{order.name}
 				</h3>
-				<p class="ml-4">${order.price}</p>
+				<p class="ml-4 dark:text-white">${order.price}</p>
 			</div>
-			<p class="mt-1 text-sm text-gray-500">{order.description}</p>
+			<p class="mt-1 text-sm text-gray-600 dark:text-gray-300">{order.description}</p>
 		</div>
-		<div class="flex flex-1 items-end justify-between text-sm">
+		<div class="flex flex-1 items-center gap-2 justify-between text-sm">
 			<input
 				type="number"
 				on:change={quantityUpdate}
 				class="
-        max-w-[100px] w-full text-gray-500"
+        max-w-[100px] w-full text-gray-600 p-1 rounded dark:text-gray-300"
 				bind:value={quantity}
 			/>
 			<div class="flex">

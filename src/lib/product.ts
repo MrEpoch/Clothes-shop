@@ -17,44 +17,52 @@ export const getProduct = async (product_id: string) => {
 };
 
 export const getInitialProducts = async (page: number) => {
-    try {
-        console.log("red");
-        const products = await prisma.product.findMany({
-            take: 9,
-            skip: 9 * page,
-            orderBy: {
-                createdAt: 'desc'
-            }
-        });
-        console.log(products);
-        return products;
-    } catch (error) {
-        console.log(error);
-        throw redirect(303, '/');
-    }
-}
+	try {
+		const products = await prisma.product.findMany({
+			take: 9,
+			skip: 9 * page,
+			orderBy: {
+				createdAt: 'desc'
+			}
+		});
+		return products;
+	} catch (error) {
+		console.log(error);
+		throw redirect(303, '/');
+	}
+};
 
 export const getSearchProducts = async (search: string, page: number) => {
-    try {
-        console.log("search");
-        const products = await prisma.product.findMany({
-            where: {
-                name: {
-                    contains: search
-                }
-            },
-            take: 9,
-            skip: 9 * page,
-            orderBy: {
-                createdAt: 'desc'
-            }
-        });
-        return products;
-    } catch (error) {
-        console.log(error);
-        throw redirect(303, '/');
-    }
-}
+	try {
+		const products = await prisma.product.findMany({
+			where: {
+				OR: [
+					{
+						name: {
+							contains: search,
+							mode: 'insensitive'
+						}
+					},
+					{
+						description: {
+							contains: search,
+							mode: 'insensitive'
+						}
+					}
+				]
+			},
+			take: 9,
+			skip: 9 * page,
+			orderBy: {
+				createdAt: 'desc'
+			}
+		});
+		return products;
+	} catch (error) {
+		console.log(error);
+		throw redirect(303, '/');
+	}
+};
 
 export enum categories {
 	women = 'women',

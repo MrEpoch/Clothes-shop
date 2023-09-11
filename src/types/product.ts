@@ -20,9 +20,6 @@ export interface Product {
 	stripeProductId: string;
 }
 
-export interface TempProduct {
-	name: string;
-	price: number;
-	category: categories;
-	image: string;
+export interface CartItem extends Product {
+	quantity: number;
 }

@@ -78,7 +78,7 @@
 					href="/catalog"
 					class="inline-flex justify-center items-center py-3
                     px-5 text-base font-medium max-w-[200px] text-center text-white rounded-lg
-                    bg-gradient-to-r from-violet-400 to-pink-400 hover:bg-blue-800
+                    bg-gradient-to-r from-violet-500 to-pink-500 hover:bg-blue-800
                     focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
 				>
 					Catalog
