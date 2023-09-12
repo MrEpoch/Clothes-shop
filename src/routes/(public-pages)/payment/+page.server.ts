@@ -42,18 +42,15 @@ export const actions: Actions = {
 		}
 
 		try {
-
-            // # I SHOULD BUILT THIS BORDER TO ONLY REDIS DATABASE SO IN CASE USER GIVES HALFWAY IT WILL SIMPLY DELETE ITSELF
-            // ## WHEN ORDER IS SUCCESS I WILL SIMPLY TAKE COOKIES OR HIS LATEST ORDER TO IN REDIS WHICH WILL BE WRITTEN TO NORMAL DB
-            
             const cart_items = JSON.parse(cart);
 
             if (cart_items.length === 0) {
                 return fail(400, { message: 'Order failed', failed: true });
             }
 
+            const orderId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+
 			const order = await makeOrder(
-				await getSession(),
                 cart_items,
 				email.data,
 				phone.data,
@@ -61,16 +58,17 @@ export const actions: Actions = {
 				country.data,
 				city.data,
 				postalcode.data,
-				name.data
+                name.data,
+                orderId
 			);
 			if (!order) {
 				return fail(400, { message: 'Order failed', failed: true });
-			}
+            }
 
-            cookies.set('order', order.id, {
+            cookies.set('velvet-order', orderId, {
                 path: '/',
                 httpOnly: true,
-                maxAge: 60 * 60 * 6
+                maxAge: 60 * 60
             });
 
 			return {

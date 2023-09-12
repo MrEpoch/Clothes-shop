@@ -1,4 +1,5 @@
 import { STRIPE_SECRET_KEY } from '$env/static/private';
+import { cacheData, getCachedData } from './cache';
 import { prisma } from './db';
 import Stripe from 'stripe';
 
@@ -21,7 +22,6 @@ async function mapOverOrders(orders: any) {
 }
 
 export const makeOrder = async (
-	session_auth: any,
 	order: any,
 	email: string,
 	phone: string,
@@ -29,7 +29,8 @@ export const makeOrder = async (
 	country: string,
 	city: string,
 	postalcode: string,
-	name: string
+    name: string,
+    orderId: string
 ) => {
 	try {
 		const products = await mapOverOrders(order);
@@ -56,19 +57,47 @@ export const makeOrder = async (
 			}
 		);
 
-		const order_db = await prisma.order.create({
+        await cacheData(`order:${orderId}`, {
+            address,
+            country,
+            email,
+            city,
+            postalCode: postalcode,
+            phone,
+            FullName: name,
+            order,
+            products
+        }, 60 * 60);
+
+        return {
+            url: session.url,
+        }
+	} catch (e) {
+		console.log(e);
+		return null;
+	}
+};
+
+export const TrueDbOrder = async (orderId: string, session_auth: any) => {
+    const orderCached = await getCachedData(`order:${orderId}`);
+    
+    if (!orderCached) {
+        return null;
+    }
+
+    const order_db = await prisma.order.create({
 			data: {
-				address,
-				country,
-				email,
-				city,
-				postalCode: postalcode,
-				phone,
-				FullName: name,
+                address: orderCached.address,
+                country: orderCached.country,
+                email: orderCached.email,
+                city: orderCached.city,
+                postalCode: orderCached.postalCode,
+                phone: orderCached.phone,
+				FullName: orderCached.FullName,
 				orderItems: {
-					create: products.map((item: any) => {
+					create: orderCached.products.map((item: any) => {
 						return {
-							quantity: order.find((order: any) => order.id === item.id).quantity,
+							quantity: orderCached.order.find((order: any) => order.id === item.id).quantity,
 							Product: {
 								connect: {
 									id: item.id
@@ -99,15 +128,8 @@ export const makeOrder = async (
             }
 		}
 
-        return {
-            url: session.url,
-            id: order.id
-        }
-	} catch (e) {
-		console.log(e);
-		return null;
-	}
-};
+    return order_db;
+}
 
 export const deleteOrder = async (orderId: string) => {
     try {

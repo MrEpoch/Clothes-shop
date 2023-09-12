@@ -1,14 +1,21 @@
 import { redirect } from '@sveltejs/kit';
 import { prisma } from './db';
+import { cacheData, getCachedData } from './cache';
 
 export const getProduct = async (product_id: string) => {
 	try {
+
+        const isCached = await getCachedData(`product:${product_id}`);
+
+        if (isCached) return isCached;
+
 		const product = await prisma.product.findUnique({
 			where: {
 				id: product_id
 			}
 		});
 
+        await cacheData(`product:${product.id}`, product);
 		return product;
 	} catch (error) {
 		console.log(error);
@@ -16,15 +23,23 @@ export const getProduct = async (product_id: string) => {
 	}
 };
 
-export const getInitialProducts = async (page: number) => {
+export const getInitialProducts = async (page: number, nthInitial: number) => {
 	try {
+
+        const isInitial = await getCachedData(`initial`);
+
+        if (isInitial && nthInitial < 5) return isInitial;
+
 		const products = await prisma.product.findMany({
 			take: 9,
 			skip: 9 * page,
 			orderBy: {
 				createdAt: 'desc'
 			}
-		});
+        });
+
+        await cacheData(`initial`, products, 60 * 60 * 2);
+
 		return products;
 	} catch (error) {
 		console.log(error);
@@ -91,6 +106,7 @@ export const createProduct = async (
 			}
 		});
 
+        await cacheData(`product:${product.id}`, product);
 		return product;
 	} catch (e) {
 		console.log(e);
