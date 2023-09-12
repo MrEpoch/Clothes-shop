@@ -43,3 +43,11 @@ export async function searchCachedData(key: string, count: number) {
         return null;
     }
 }
+
+export async function removeFromCachedProducts(key: string) {
+	try {
+		await redis.del(key);
+	} catch (error) {
+		console.log(error);
+	}
+}

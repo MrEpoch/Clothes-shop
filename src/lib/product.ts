@@ -1,27 +1,44 @@
 import { redirect } from '@sveltejs/kit';
 import { prisma } from './db';
-import { cacheData, getCachedData } from './cache';
+import { cacheData, getCachedData, removeFromCachedProducts } from './cache';
 
-export const getProduct = async (product_id: string) => {
+export const getProduct = async (product_name: string) => {
 	try {
-
-        const isCached = await getCachedData(`product:${product_id}`);
+        const isCached = await getCachedData(`product:${product_name}`);
 
         if (isCached) return isCached;
 
 		const product = await prisma.product.findUnique({
 			where: {
-				id: product_id
+				name: product_name
 			}
 		});
 
-        await cacheData(`product:${product.id}`, product);
+        if (product) await cacheData(`product:${product.name}`, product);
 		return product;
 	} catch (error) {
 		console.log(error);
 		throw redirect(303, '/');
 	}
 };
+
+export const getProductCount = async () => {
+	try {
+        const cachedProductCount = await getCachedData('count');
+		if (cachedProductCount) {
+			return cachedProductCount;
+		}
+
+		const productCount = await prisma.product.count();
+
+		await cacheData('count', productCount, 60 * 60 * 2);
+
+		return productCount;
+	} catch (err) {
+		console.log(err);
+		return;
+	}
+}
 
 export const getInitialProducts = async (page: number, nthInitial: number) => {
 	try {
@@ -49,6 +66,7 @@ export const getInitialProducts = async (page: number, nthInitial: number) => {
 
 export const getSearchProducts = async (search: string, page: number) => {
 	try {
+
 		const products = await prisma.product.findMany({
 			where: {
 				OR: [
@@ -107,9 +125,29 @@ export const createProduct = async (
 		});
 
         await cacheData(`product:${product.id}`, product);
-		return product;
+        await removeFromCachedProducts(`initial`);
+        await removeFromCachedProducts('count');
+        return product;
 	} catch (e) {
 		console.log(e);
 		return null;
 	}
 };
+
+export const deleteProduct = async (id: string) => {
+    try {
+        const deleted = await prisma.product.delete({
+            where: {
+                id
+            }
+        });
+
+        await removeFromCachedProducts(`product:${id}`);
+        await removeFromCachedProducts(`initial`);
+        await removeFromCachedProducts('count');
+        return deleted;
+    } catch (e) {
+        console.log(e);
+        return null;
+    }
+}
