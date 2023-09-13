@@ -31,7 +31,8 @@
             text-gray-900 text-sm rounded focus:ring-primary-500 focus:border-primary-500
             block p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
             dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-		>
+            >
+            <option selected={category.length === 0} value="all">All</option>
 			<option selected={category === 'men'} value="men">Men's</option>
 			<option selected={category === 'women'} value="women">Women's</option>
 			<option selected={category === 'kids'} value="kids">Kid's</option>

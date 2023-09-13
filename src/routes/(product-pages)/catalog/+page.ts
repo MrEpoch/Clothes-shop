@@ -6,7 +6,7 @@ export const load = async ({ url, depends, fetch }: { url: URL; depends: any }) 
 	try {
 		const search = url.searchParams.get('search');
 		const page = url.searchParams.get('page') ?? '0';
-		const category = url.searchParams.get('category') ?? 'men';
+		const category = url.searchParams.get('category') ?? 'all';
 
 		const resp = await fetch(`/search?search=${search}&page=${page}`);
 		const products = await resp.json();

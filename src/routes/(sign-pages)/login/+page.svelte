@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+
 	export let data;
 	let { supabase } = data;
 	$: ({ supabase } = data);
@@ -10,7 +12,8 @@
 		await supabase.auth.signInWithPassword({
 			email,
 			password
-		});
+        });
+        await goto("/account");
 	};
 
 	const handle_login_github = async () => {

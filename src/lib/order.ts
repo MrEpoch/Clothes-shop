@@ -49,7 +49,7 @@ export const makeOrder = async (
 			{
 				line_items: orders,
 				mode: 'payment',
-				success_url: 'http://localhost:5173/payment/success',
+				success_url: `http://localhost:5173/payment/success?order=${orderId}`,
 				cancel_url: 'http://localhost:5173/payment/cancel'
 			},
 			{
@@ -67,7 +67,7 @@ export const makeOrder = async (
             FullName: name,
             order,
             products
-        }, 60 * 60);
+        }, 60 * 60 * 12);
 
         return {
             url: session.url,

@@ -7,7 +7,8 @@
 	});
 </script>
 
-<div class="min-h-screen dark:bg-black/10 dark:text-white/90 flex flex-col">
+<div class="min-h-screen items-center 
+    justify-center dark:bg-black/10 dark:text-white/90 flex flex-col">
 	<div
 		class="flex flex-col border-[3px] h-full aspect-square p-[2rem] sm:p-[4rem] rounded-[100%] border-green-300 gap-[2rem] md:gap-[4rem] items-center justify-center"
 	>

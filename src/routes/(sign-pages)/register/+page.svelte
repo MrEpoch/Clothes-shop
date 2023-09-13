@@ -21,9 +21,7 @@
 			}
 		});
 		if (val.error) return;
-		console.log(val);
-
-		await goto('/');
+		await goto('/account');
 	};
 
 	const handle_github_register = async () => {

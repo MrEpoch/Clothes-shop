@@ -65,12 +65,6 @@ export const actions: Actions = {
 				return fail(400, { message: 'Order failed', failed: true });
             }
 
-            cookies.set('velvet-order', orderId, {
-                path: '/',
-                httpOnly: true,
-                maxAge: 60 * 60
-            });
-
 			return {
 				url: order.url,
 				failed: false,

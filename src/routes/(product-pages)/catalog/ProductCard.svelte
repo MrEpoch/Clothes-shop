@@ -38,7 +38,7 @@
 
 </script>
 
-{#if product.category === selected}
+{#if product.category === selected || selected === "all"}
 	<button
 		on:click={() => (hiddenModal = false)}
 		class="hover:brightness-90 product_container transition duration-300

@@ -42,9 +42,8 @@ export const getProductCount = async () => {
 
 export const getInitialProducts = async (page: number, nthInitial: number) => {
 	try {
-
         const isInitial = await getCachedData(`initial`);
-
+        
         if (isInitial && nthInitial < 5) return isInitial;
 
 		const products = await prisma.product.findMany({
@@ -66,7 +65,6 @@ export const getInitialProducts = async (page: number, nthInitial: number) => {
 
 export const getSearchProducts = async (search: string, page: number) => {
 	try {
-
 		const products = await prisma.product.findMany({
 			where: {
 				OR: [
