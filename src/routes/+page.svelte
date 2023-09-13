@@ -52,18 +52,20 @@
          opacity-0 min-h-full w-full object-cover dark:brightness-7 dark:brightness-755"
 		/>
 	</div>
-	<section class="mt-[10rem] min-h-screen flex w-full p-10 flex-col">
+	<section class="mt-[10rem] min-h-screen flex w-full p-5 sm:p-10 flex-col">
 		<div
 			class="py-8 bg-white/70 dark:bg-black/50 px-4 mx-auto max-w-screen-xl text-center lg:py-16"
 		>
 			<div class="blur-sm w-full h-full z-10" />
 			<h1
-				class="mb-4 sm:text-4xl text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl lg:text-5xl dark:text-white"
+                class="mb-4 text-center sm:text-4xl max-[380px]:text-xl text-2xl font-extrabold tracking-tight 
+                leading-none text-gray-900 md:text-4xl lg:text-5xl dark:text-white"
 			>
 				Discover Fashion that Defines You
 			</h1>
 			<p
-				class="mb-8 text-sm sm:text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400"
+                class="mb-8 text-center text-sm sm:text-lg font-normal text-gray-500 
+                lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400"
 			>
 				Step into a world where style isn't just clothing; it's an expression of who you are.
 				<span class="hidden sm:block"
@@ -76,8 +78,8 @@
 			>
 				<a
 					href="/catalog"
-					class="inline-flex justify-center items-center py-3
-                    px-5 text-base font-medium max-w-[200px] text-center text-white rounded-lg
+					class="inline-flex justify-center items-center sm:py-3 py-1.5 text-sm
+                    sm:px-5 px-2.5 sm:text-base font-medium max-w-[200px] text-center text-white rounded-lg
                     bg-gradient-to-r from-violet-500 to-pink-500 hover:bg-blue-800
                     focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
 				>
@@ -132,7 +134,7 @@
 		</div>
 	</div>
 	<div class="min-h-screen flex items-start flex-col pb-[8rem] w-full">
-		<div class="flex gap-[2rem] flex-wrap justify-center max-w-screen-xl mx-auto">
+		<div class="flex gap-[2rem] flex-wrap justify-center px-[1rem] max-w-screen-xl mx-auto">
 			{#each categories as category}
 				<CategoryCard {category} />
 			{/each}

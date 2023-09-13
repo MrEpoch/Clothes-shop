@@ -36,16 +36,17 @@
 </script>
 
 <div
-	class="flex dark:bg-black/10 dark:text-white/90 justify-center gap-[3rem] flex-col bg-gray-100/40 items-center min-h-screen"
+	class="flex pb-[7rem] dark:bg-black/10 dark:text-white/90 justify-center gap-[3rem] flex-col bg-gray-100/40 items-center min-h-screen"
 >
-	<h1 class="text-5xl mb-6 font-thin">Log In</h1>
+	<h1 class="sm:text-5xl text-3xl mb-6 font-thin">Log In</h1>
 	<form
-		class="dark:bg-black/20 max-w-[500px] w-full shadow bg-white mb-[5rem] relative rounded p-[5rem] flex flex-col gap-[3rem]"
+        class="dark:bg-black/20 max-w-[500px] w-full shadow bg-white mb-[5rem] relative 
+        rounded p-[2rem] sm:py-[5rem] py-[4rem] sm:p-[5rem] flex flex-col gap-[3rem]"
 		method="POST"
 	>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
-			class="absolute top-0 dark:text-white/80 left-0 translate-y-[-50px] translate-x-[10px] w-[100px]"
+			class="absolute top-0 dark:text-white/80 left-0 translate-y-[-50px] translate-x-[10px] w-[75px] sm:w-[100px]"
 			viewBox="0 0 24 24"
 			><title>shield-account</title><path
 				fill="currentColor"

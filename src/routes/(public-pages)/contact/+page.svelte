@@ -42,7 +42,7 @@
 	];
 </script>
 
-<div class="min-h-screen dark:bg-black/10 relative dark:text-white/90">
+<div class="min-h-screen py-[5rem] dark:bg-black/10 relative dark:text-white/90">
 	<div
 		class="max-w-screen-xl flex flex-wrap justify-center
         mx-auto px-4 lg:p-16 gap-[2rem]"
@@ -56,10 +56,10 @@
 						rel="noreferrer"
                         class="flex flex-col gap-3 items-center h-full w-full 
                         hover:bg-gradient-to-r from-violet-500 to-pink-500
-                        justify-center min-w-[16rem] bg-gray-100 dark:bg-gray-700 aspect-video rounded-xl"
+                        justify-center min-w-[12rem] sm:min-w-[16rem] bg-gray-100 dark:bg-gray-700 aspect-video rounded-xl"
 					>
-						<svelte:component this={contact.svg} class="w-8 h-8" size="24" />
-						<p class="text-xl font-bold">{contact.type}</p>
+						<svelte:component this={contact.svg} class="sm:w-8 w-6 h-6 sm:h-8" size="24" />
+						<p class="sm:text-xl text-lg font-bold">{contact.type}</p>
 					</a>
 				{:else}
 					<button
@@ -67,10 +67,10 @@
 						use:clipboard={contact.content}
 						class="flex flex-col gap-3 items-center h-full w-full 
                         hover:bg-gradient-to-r from-violet-500 to-pink-500
-                        justify-center min-w-[16rem] bg-gray-100 dark:bg-gray-700 aspect-video rounded-xl"
+                        justify-center min-w-[12rem] sm:min-w-[16rem] bg-gray-100 dark:bg-gray-700 aspect-video rounded-xl"
 					>
-						<svelte:component this={contact.svg} class="w-8 h-8" size="24" />
-						<p class="text-xl font-bold">{contact.type}</p>
+						<svelte:component this={contact.svg} class="sm:w-8 w-6 h-6 sm:h-8" size="24" />
+						<p class="sm:text-xl text-lg font-bold">{contact.type}</p>
 					</button>
 				{/if}
 			</div>
