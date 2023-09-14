@@ -123,13 +123,13 @@
 				<p class="mb-8 text-center text-lg text-white font-bold lg:text-xl sm:px-16 lg:px-48">
 					{ad_info.subtitle}
 				</p>
-				<button
+				<a href="/catalog"
 					class="bg-gradient-to-r from-violet-400 to-pink-400
                     hover:bg-blue-800 focus:ring-4 text-white focus:ring-blue-300 font-medium
                     rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-blue-900"
 				>
 					Buy Now
-				</button>
+				</a>
 			</div>
 		</div>
 	</div>
@@ -141,3 +141,14 @@
 		</div>
 	</div>
 </div>
+
+<style lang="postcss">
+    img {
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+    }
+</style>

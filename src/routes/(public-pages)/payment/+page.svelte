@@ -3,10 +3,12 @@
 	import Stepper from './Stepper.svelte';
 	import CartForm from './CartForm.svelte';
 	import { browser } from '$app/environment';
+	import { cart } from 'lib/store';
 
 	let currentStep = 0;
 
     export let form;
+    let message = '';
 
     if (form?.success) currentStep = 3;
 
@@ -24,6 +26,13 @@
 
 	function nextStep() {
 		if (currentStep === 2) return;
+        if ($cart.length === 0) {
+            message = 'Cart is empty';
+            setTimeout(() => {
+                message = '';
+            }, 1000)
+            return;
+        }
 		currentStep += 1;
 	}
 
@@ -34,7 +43,7 @@
 </script>
 
 <div class="min-h-screen w-full relative flex flex-col dark:bg-black/10 dark:text-white/90">
-	<Stepper {currentStep} />
+    <Stepper {currentStep} />
 	<div class="w-full min-h-full flex flex-col max-w-7xl mx-auto p-4">
 		{#if currentStep === 0}
 			<CartForm />
@@ -76,5 +85,10 @@
               </svg>
             </button>
         </div>
+    {/if}
+    {#if message.length > 0}
+        <p class="fixed right-3 bottom-5 rounded-xl px-6 py-4 font-bold
+            bg-red-400  
+            text-center text-sm text-white">{message}</p>
     {/if}
 </div>

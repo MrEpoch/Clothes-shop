@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Logo from 'assets/logo.png';
 	import LogoDark from 'assets/VelvetLine-bg.png';
-	import { theme } from 'lib/store';
+	import { cart, theme } from 'lib/store';
 	import { UserIcon, SunIcon, ShoppingCartIcon } from 'svelte-feather-icons';
 
 	let hidden = true;
@@ -72,11 +72,15 @@
 					on:click={showCart}
 					class="flex items-center md:justify-center w-full text-start
                 py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0
-                md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500
+                md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 relative
                 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
 				>
 					<ShoppingCartIcon class="w-8 dark:text-white font-bold text-black" />
-				</button>
+                    {#if $cart.length > 0}
+                        <div class="absolute inline-flex items-center justify-center w-5 h-5 text-xs 
+                        font-bold text-white bg-red-500 rounded-full -top-3 -right-3 ">{$cart.length}</div>
+                    {/if}
+                </button>
 				<button
 					on:click={SwitchTheme}
 					class="flex items-center md:justify-center w-full text-start
