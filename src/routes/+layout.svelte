@@ -6,13 +6,13 @@
 	import CartModal from './Cart_Modal.svelte';
 	import { onMount } from 'svelte';
 	import { invalidate } from '$app/navigation';
+	import Transition from './transition.svelte';
 
 	$: dark = $theme === 'dark';
 	let shown_cart = false;
 
 	export let data;
 
-	let { supabase, session } = data;
 	$: ({ supabase, session } = data);
 
 	onMount(() => {
@@ -37,7 +37,9 @@
 
 <div class="relative" class:dark>
 	<Header {showCart} />
-	<slot />
+    <Transition url={data.url}>
+        <slot />
+    </Transition>
 	<Footer />
 
 	{#if shown_cart}

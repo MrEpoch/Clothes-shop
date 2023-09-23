@@ -58,13 +58,13 @@
 		>
 			<div class="blur-sm w-full h-full z-10" />
 			<h1
-                class="mb-4 text-center sm:text-4xl max-[380px]:text-xl text-2xl font-extrabold tracking-tight 
+				class="mb-4 text-center sm:text-4xl max-[380px]:text-xl text-2xl font-extrabold tracking-tight
                 leading-none text-gray-900 md:text-4xl lg:text-5xl dark:text-white"
 			>
 				Discover Fashion that Defines You
 			</h1>
 			<p
-                class="mb-8 text-center text-sm sm:text-lg font-normal text-gray-500 
+				class="mb-8 text-center text-sm sm:text-lg font-normal text-gray-500
                 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400"
 			>
 				Step into a world where style isn't just clothing; it's an expression of who you are.
@@ -123,7 +123,8 @@
 				<p class="mb-8 text-center text-lg text-white font-bold lg:text-xl sm:px-16 lg:px-48">
 					{ad_info.subtitle}
 				</p>
-				<a href="/catalog"
+				<a
+					href="/catalog"
 					class="bg-gradient-to-r from-violet-400 to-pink-400
                     hover:bg-blue-800 focus:ring-4 text-white focus:ring-blue-300 font-medium
                     rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-blue-900"
@@ -143,12 +144,12 @@
 </div>
 
 <style lang="postcss">
-    img {
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        -o-user-select: none;
-        user-select: none;
-    }
+	img {
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		-o-user-select: none;
+		user-select: none;
+	}
 </style>

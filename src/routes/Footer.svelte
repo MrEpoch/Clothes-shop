@@ -15,7 +15,7 @@
 			</li>
 			<li>
 				<a
-					href="https://www.privacypolicies.com/live/2470fb14-022a-4f19-a2e0-2893fa1693fd"
+					href="/about"
 					class="mr-4 hover:underline md:mr-6">About</a
 				>
 			</li>

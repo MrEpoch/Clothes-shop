@@ -1,20 +1,12 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
+    export let data;
+    export let form: { error: boolean, message: string };
 
-	export let data;
 	let { supabase } = data;
 	$: ({ supabase } = data);
 
 	let email: string;
 	let password: string;
-
-	const handle_login = async () => {
-		await supabase.auth.signInWithPassword({
-			email,
-			password
-        });
-        await goto("/account");
-	};
 
 	const handle_login_github = async () => {
 		await supabase.auth.signInWithOAuth({
@@ -38,9 +30,9 @@
 <div
 	class="flex pb-[7rem] dark:bg-black/10 dark:text-white/90 justify-center gap-[3rem] flex-col bg-gray-100/40 items-center min-h-screen"
 >
-	<h1 class="sm:text-5xl text-3xl mb-6 font-thin">Log In</h1>
+	<h1 class="sm:text-5xl text-3xl py-[5rem] mb-6 font-thin">Log In</h1>
 	<form
-        class="dark:bg-black/20 max-w-[500px] w-full shadow bg-white mb-[5rem] relative 
+		class="dark:bg-black/20 max-w-[500px] w-full shadow bg-white mb-[5rem] relative
         rounded p-[2rem] sm:py-[5rem] py-[4rem] sm:p-[5rem] flex flex-col gap-[3rem]"
 		method="POST"
 	>
@@ -77,8 +69,7 @@
 		</div>
 		<div class="flex justify-center">
 			<button
-				type="button"
-				on:click={handle_login}
+				type="submit"
 				class="py-2 p-8 rounded-[6px] bg-black text-white font-light text-lg hover:bg-gray-800 transition-all"
 				>Log In</button
 			>

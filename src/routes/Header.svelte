@@ -52,7 +52,23 @@
 				class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100
             rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0
             md:dark:bg-transparent dark:border-gray-700 dark:bg-black/90 md:items-center"
-			>
+            >
+                <li>
+					<a
+						href="/"
+						class="block py-2 text-xl pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent
+                ">Home</a
+					>
+				</li>
+
+                <li>
+					<a
+						href="/about"
+						class="block py-2 text-xl pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent
+                ">About</a
+					>
+				</li>
+
 				<li>
 					<a
 						href="/catalog"
@@ -76,11 +92,15 @@
                 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
 				>
 					<ShoppingCartIcon class="w-8 dark:text-white font-bold text-black" />
-                    {#if $cart.length > 0}
-                        <div class="absolute inline-flex items-center justify-center w-5 h-5 text-xs 
-                        font-bold text-white bg-red-500 rounded-full -top-3 -right-3 ">{$cart.length}</div>
-                    {/if}
-                </button>
+					{#if $cart.length > 0}
+						<div
+							class="absolute inline-flex items-center justify-center w-5 h-5 text-xs
+                        font-bold text-white bg-red-500 rounded-full -top-3 -right-3"
+						>
+							{$cart.length}
+						</div>
+					{/if}
+				</button>
 				<button
 					on:click={SwitchTheme}
 					class="flex items-center md:justify-center w-full text-start

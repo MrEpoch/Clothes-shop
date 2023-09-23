@@ -1,3 +1,4 @@
+import { dev } from '$app/environment';
 import { STRIPE_SECRET_KEY } from '$env/static/private';
 import { cacheData, getCachedData } from './cache';
 import { prisma } from './db';
@@ -29,8 +30,8 @@ export const makeOrder = async (
 	country: string,
 	city: string,
 	postalcode: string,
-    name: string,
-    orderId: string
+	name: string,
+	orderId: string
 ) => {
 	try {
 		const products = await mapOverOrders(order);
@@ -49,29 +50,33 @@ export const makeOrder = async (
 			{
 				line_items: orders,
 				mode: 'payment',
-				success_url: `https://clothes-shop-ten.vercel.app/payment/success?order=${orderId}`,
-				cancel_url: 'https://clothes-shop-ten.vercel.app/payment/cancel'
+                success_url: dev ? `http://localhost:5173/payment/success?order=${orderId}` : `https://clothes-shop-ten.vercel.app/payment/success?order=${orderId}`,
+				cancel_url: dev ? `http://localhost:5173/payment/cancel` : 'https://clothes-shop-ten.vercel.app/payment/cancel'
 			},
 			{
 				apiKey: STRIPE_SECRET_KEY
 			}
 		);
 
-        await cacheData(`order:${orderId}`, {
-            address,
-            country,
-            email,
-            city,
-            postalCode: postalcode,
-            phone,
-            FullName: name,
-            order,
-            products
-        }, 60 * 60 * 12);
+		await cacheData(
+			`order:${orderId}`,
+			{
+				address,
+				country,
+				email,
+				city,
+				postalCode: postalcode,
+				phone,
+				FullName: name,
+				order,
+				products
+			},
+			60 * 60 * 12
+		);
 
-        return {
-            url: session.url,
-        }
+		return {
+			url: session.url
+		};
 	} catch (e) {
 		console.log(e);
 		return null;
@@ -79,75 +84,75 @@ export const makeOrder = async (
 };
 
 export const TrueDbOrder = async (orderId: string, session_auth: any) => {
-    const orderCached = await getCachedData(`order:${orderId}`);
-    
-    if (!orderCached) {
-        return null;
-    }
+	const orderCached = await getCachedData(`order:${orderId}`);
 
-    const order_db = await prisma.order.create({
-			data: {
-                address: orderCached.address,
-                country: orderCached.country,
-                email: orderCached.email,
-                city: orderCached.city,
-                postalCode: orderCached.postalCode,
-                phone: orderCached.phone,
-				FullName: orderCached.FullName,
-				orderItems: {
-					create: orderCached.products.map((item: any) => {
-						return {
-							quantity: orderCached.order.find((order: any) => order.id === item.id).quantity,
-							Product: {
-								connect: {
-									id: item.id
-								}
+	if (!orderCached) {
+		return null;
+	}
+
+	const order_db = await prisma.order.create({
+		data: {
+			address: orderCached.address,
+			country: orderCached.country,
+			email: orderCached.email,
+			city: orderCached.city,
+			postalCode: orderCached.postalCode,
+			phone: orderCached.phone,
+			FullName: orderCached.FullName,
+			orderItems: {
+				create: orderCached.products.map((item: any) => {
+					return {
+						quantity: orderCached.order.find((order: any) => order.id === item.id).quantity,
+						Product: {
+							connect: {
+								id: item.id
 							}
-						};
-					})
-				}
+						}
+					};
+				})
+			}
+		}
+	});
+
+	if (session_auth && session_auth.user) {
+		const user = await prisma.user.findUnique({
+			where: {
+				supabaseUserId: session_auth.user.id
 			}
 		});
 
-		if (session_auth && session_auth.user) {
-            const user = await prisma.user.findUnique({
-                where: {
-                    supabaseUserId: session_auth.user.id
-                }
-            })
-
-            if (user) {
-                await prisma.order.update({
-                    where: {
-                        id: order_db.id
-                    },
-                    data: {
-                        userId: user.id
-                    }
-                });
-            }
+		if (user) {
+			await prisma.order.update({
+				where: {
+					id: order_db.id
+				},
+				data: {
+					userId: user.id
+				}
+			});
 		}
+	}
 
-    return order_db;
-}
+	return order_db;
+};
 
 export const deleteOrder = async (orderId: string) => {
-    try {
-        await prisma.orderItem.deleteMany({
-            where: {
-                orderId: orderId
-            }
-        })
+	try {
+		await prisma.orderItem.deleteMany({
+			where: {
+				orderId: orderId
+			}
+		});
 
-        await prisma.order.delete({
-            where: {
-                id: orderId
-            }
-        });
+		await prisma.order.delete({
+			where: {
+				id: orderId
+			}
+		});
 
-        return true;
-    } catch (e) {
-        console.log(e);
-        return null;
-    }
-}
+		return true;
+	} catch (e) {
+		console.log(e);
+		return null;
+	}
+};

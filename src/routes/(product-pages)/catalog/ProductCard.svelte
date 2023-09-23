@@ -23,22 +23,21 @@
 		});
 	}
 
-    function addToCartAndPay() {
-        cart.update((c) => {
-            const exists = c.find((cartItem) => cartItem.id === product.id);
-            if (exists) {
-                exists.quantity += 1;
-                return [...c];
-            }
-            const cartItem = { ...product, quantity: 1 };
-            return [...c, cartItem];
-        })
-        goto("/payment");
-    }
-
+	function addToCartAndPay() {
+		cart.update((c) => {
+			const exists = c.find((cartItem) => cartItem.id === product.id);
+			if (exists) {
+				exists.quantity += 1;
+				return [...c];
+			}
+			const cartItem = { ...product, quantity: 1 };
+			return [...c, cartItem];
+		});
+		goto('/payment');
+	}
 </script>
 
-{#if product.category === selected || selected === "all"}
+{#if product.category === selected || selected === 'all'}
 	<button
 		on:click={() => (hiddenModal = false)}
 		class="hover:brightness-90 product_container transition duration-300
@@ -50,8 +49,10 @@
 			class="w-full transition hover:duration-300 hover:transition duration-300
     hover:scale-[1.02] h-full object-cover min-h-5/4"
 		/>
-        <div class="p-4 bg-gray-800/50 text-white
-            flex product_text w-full flex-col items-start">
+		<div
+			class="p-4 bg-gray-800/50 text-white
+            flex product_text w-full flex-col items-start"
+		>
 			<h2 class="text-xl font-semibold">{product.name}</h2>
 			<p class="text-gray-100">${product.price}</p>
 		</div>
@@ -104,23 +105,24 @@
 					<h3 class="text-2xl font-semibold">{product.name}</h3>
 					<p class="text-gray-500">{product.description}</p>
 				</div>
-                <div class="flex items-center justify-end p-6 max-[325px]:gap-3 
-                    max-[325px]:flex-col space-x-2 rounded-b">
+				<div
+					class="flex items-center justify-end p-6 max-[325px]:gap-3
+                    max-[325px]:flex-col space-x-2 rounded-b"
+				>
 					<button
 						on:click={addToCart}
 						type="button"
-                        class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 
-                        focus:outline-none focus:ring-blue-300 rounded-lg 
-                        text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 
-                        dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-600 
-                        dark:focus:ring-gray-600 text-center"
-                        >Add to Cart</button
+						class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4
+                        focus:outline-none focus:ring-blue-300 rounded-lg
+                        text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700
+                        dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-600
+                        dark:focus:ring-gray-600 text-center">Add to Cart</button
 					>
 					<button
 						on:click={addToCartAndPay}
 						type="button"
-                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 
-                        focus:outline-none focus:ring-blue-300 font-medium rounded-lg 
+						class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4
+                        focus:outline-none focus:ring-blue-300 font-medium rounded-lg
                         text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
 						>Checkout</button
 					>

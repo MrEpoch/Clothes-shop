@@ -34,7 +34,7 @@ export const actions: Actions = {
 			!city.success ||
 			!postalcode.success
 		) {
-            return fail(400, { message: 'Order failed', failed: true });
+			return fail(400, { message: 'Order failed', failed: true });
 		}
 
 		if (countries.indexOf(country.data) === -1) {
@@ -42,35 +42,36 @@ export const actions: Actions = {
 		}
 
 		try {
-            const cart_items = JSON.parse(cart);
+			const cart_items = JSON.parse(cart);
 
-            if (cart_items.length === 0) {
-                return fail(400, { message: 'Order failed', failed: true });
-            }
+			if (cart_items.length === 0) {
+				return fail(400, { message: 'Order failed', failed: true });
+			}
 
-            const orderId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+			const orderId =
+				Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 
 			const order = await makeOrder(
-                cart_items,
+				cart_items,
 				email.data,
 				phone.data,
 				address.data,
 				country.data,
 				city.data,
 				postalcode.data,
-                name.data,
-                orderId
+				name.data,
+				orderId
 			);
 			if (!order) {
 				return fail(400, { message: 'Order failed', failed: true });
-            }
+			}
 
 			return {
 				url: order.url,
 				failed: false,
 				success: true
 			};
-        } catch (e) {
+		} catch (e) {
 			console.log(e);
 			return fail(400, { message: 'Order failed', failed: true });
 		}

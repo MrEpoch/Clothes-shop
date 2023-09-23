@@ -29,7 +29,6 @@
 			return value;
 		});
 	}
-
 </script>
 
 <li class="flex py-6">

@@ -54,7 +54,7 @@
 						href={contact.content}
 						target="_blank"
 						rel="noreferrer"
-                        class="flex flex-col gap-3 items-center h-full w-full 
+						class="flex flex-col gap-3 items-center h-full w-full
                         hover:bg-gradient-to-r from-violet-500 to-pink-500
                         justify-center min-w-[12rem] sm:min-w-[16rem] bg-gray-100 dark:bg-gray-700 aspect-video rounded-xl"
 					>
@@ -65,7 +65,7 @@
 					<button
 						on:click={addedToClipboard}
 						use:clipboard={contact.content}
-						class="flex flex-col gap-3 items-center h-full w-full 
+						class="flex flex-col gap-3 items-center h-full w-full
                         hover:bg-gradient-to-r from-violet-500 to-pink-500
                         justify-center min-w-[12rem] sm:min-w-[16rem] bg-gray-100 dark:bg-gray-700 aspect-video rounded-xl"
 					>
