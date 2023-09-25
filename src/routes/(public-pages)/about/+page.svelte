@@ -32,9 +32,11 @@
 ]
 </script>
 
-<div class="min-h-screen dark:bg-black/10 dark:text-white/90 w-full">
+<div class="min-h-screen py-[10rem] dark:bg-black/10 dark:text-white/90 w-full">
     <section class="max-w-screen-2xl mb-[5rem] mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8 flex flex-col gap-[5rem]">
-        <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+        <h1 class="text-2xl text-center sm:text-4xl 
+            font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl 
+            lg:text-6xl dark:text-white">
             Learn About Us!
         </h1>
         <div class="flex flex-col gap-[10rem]">

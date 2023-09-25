@@ -13,7 +13,7 @@
 	}
 </script>
 
-<div class="min-h-screen gap-[3rem] flex flex-col dark:bg-black/10 dark:text-white/90">
+<div class="min-h-screen gap-[3rem] py-[7rem] flex flex-col dark:bg-black/10 dark:text-white/90">
 	<h2
 		class="text-5xl mx-auto w-full py-8 px-2 max-w-5xl mb-6 font-medium text-center font-eczar pt-[2rem]"
 	>

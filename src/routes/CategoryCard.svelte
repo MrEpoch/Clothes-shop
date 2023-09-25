@@ -9,8 +9,8 @@
 <a
 	href={`/catalog?category=${category.category.toLowerCase()}`}
 	class={` ${isAnimating ? 'animate-pulse' : ''}
-    max-w-[500px] relative min-w-[250px] aspect-square h-full hover:scale-[1.02] transition-transform duration-300
-    w-full bg-gray-300 dark:bg-gray-800`}
+    w-full sm:w-[calc(50%-10px)] relative aspect-square h-full hover:scale-[1.02] transition-transform duration-300
+    bg-gray-300 dark:bg-gray-800`}
 >
 	<img
 		use:lazyLoad={category.img}

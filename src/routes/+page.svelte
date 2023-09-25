@@ -103,11 +103,11 @@
 			</div>
 		</div>
 	</section>
-	<div class="min-h-screen flex items-center justify-center flex-col mt-[5rem] w-full">
+	<div class="min-h-screen px-6 flex items-center justify-center flex-col mt-[5rem] w-full">
 		<div
 			id="great-deal"
-			class="px-4 align-center min-h-[200px] w-[calc(100%-75px)] items-center flex flex-col justify-center
-            h-full relative mx-auto max-w-screen-lg lg:py-24"
+			class="align-center min-h-[200px] w-full items-center flex flex-col justify-center
+            h-full relative max-w-screen-xl lg:py-24"
 		>
 			<img
 				class="w-full z-[-1] min-h-full brightness-75 h-full object-cover absolute"
@@ -134,8 +134,8 @@
 			</div>
 		</div>
 	</div>
-	<div class="min-h-screen flex items-start flex-col pb-[8rem] w-full">
-		<div class="flex gap-[2rem] flex-wrap justify-center px-[1rem] max-w-screen-xl mx-auto">
+	<div class="min-h-screen px-6 flex items-start flex-col py-[16rem] w-full">
+		<div class="flex gap-[10px] flex-wrap justify-center max-w-screen-xl w-full mx-auto">
 			{#each categories as category}
 				<CategoryCard {category} />
 			{/each}
