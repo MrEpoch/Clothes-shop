@@ -26,13 +26,15 @@ export const actions: Actions = {
             }
 
             const { error } = await supabase.auth.signInWithPassword({
-                email,
-                password,
+                email: email.data,
+                password: password.data,
             })
 
             if (error) {
+                console.log(error);
                 return fail(400, { message: "Error logging in", error: true });
             }
+
         } catch (error) {
             console.log(error);
             return fail(400, { message: "Error logging in", error: true });

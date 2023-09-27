@@ -10,7 +10,7 @@ export const getProduct = async (product_id: string) => {
 
 		const product = await prisma.product.findUnique({
 			where: {
-				name: product_id
+				id: product_id
 			}
 		});
 
@@ -140,12 +140,13 @@ export const updateProduct = async (
 	category: categories,
 	price: number,
 	stripeId: string,
-	image_name: string
+	image_name: string,
+    id: string
 ) => {
 	try {
         const product = await prisma.product.update({
             where: {
-                name
+                id
             },
 			data: {
 				name,
