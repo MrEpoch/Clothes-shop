@@ -12,34 +12,33 @@ export const load: PageServerLoad = async ({ url, locals: { getSession } }) => {
 };
 
 export const actions: Actions = {
-    default: async ({ request, locals: { supabase }, url }) => {
-        try {
-            const data = await request.formData();
-            const zodEmail = z.string().email();
-            const zodPassword = z.string().min(8);
+	default: async ({ request, locals: { supabase } }) => {
+		try {
+			const data = await request.formData();
+			const zodEmail = z.string().email();
+			const zodPassword = z.string().min(8);
 
-            const email = zodEmail.safeParse(data.get('email'));
-            const password = zodPassword.safeParse(data.get('password'));
+			const email = zodEmail.safeParse(data.get('email'));
+			const password = zodPassword.safeParse(data.get('password'));
 
-            if (!email.success || !password.success) {
-                return fail(400, { message: 'You must provide valid data', error: true });
-            }
+			if (!email.success || !password.success) {
+				return fail(400, { message: 'You must provide valid data', error: true });
+			}
 
-            const { error } = await supabase.auth.signInWithPassword({
-                email: email.data,
-                password: password.data,
-            })
+			const { error } = await supabase.auth.signInWithPassword({
+				email: email.data,
+				password: password.data
+			});
 
-            if (error) {
-                console.log(error);
-                return fail(400, { message: "Error logging in", error: true });
-            }
+			if (error) {
+				console.log(error);
+				return fail(400, { message: 'Error logging in', error: true });
+			}
+		} catch (error) {
+			console.log(error);
+			return fail(400, { message: 'Error logging in', error: true });
+		}
 
-        } catch (error) {
-            console.log(error);
-            return fail(400, { message: "Error logging in", error: true });
-        }
-
-        throw redirect(303, "/account");
-    }
-}
+		throw redirect(303, '/account');
+	}
+};

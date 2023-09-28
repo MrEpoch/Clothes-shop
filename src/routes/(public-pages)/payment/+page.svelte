@@ -35,11 +35,6 @@
 		}
 		currentStep += 1;
 	}
-
-	function prevStep() {
-		if (currentStep === 0) return;
-		currentStep -= 1;
-	}
 </script>
 
 <div class="min-h-screen w-full relative flex flex-col dark:bg-black/10 dark:text-white/90">

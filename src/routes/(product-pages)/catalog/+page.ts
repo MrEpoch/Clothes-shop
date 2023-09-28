@@ -1,7 +1,7 @@
 import { redirect } from '@sveltejs/kit';
 import { writable } from 'svelte/store';
 
-export const load = async ({ url, depends, fetch }: { url: URL; depends: any }) => {
+export const load = async ({ url, depends, fetch }: { url: URL; depends: any; fetch: any }) => {
 	depends('products:data');
 	try {
 		const search = url.searchParams.get('search');

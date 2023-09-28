@@ -1,3 +1,5 @@
+import type { Product } from '@prisma/client';
+import type { SupabaseClient } from '@supabase/supabase-js';
 import { json, type Cookies } from '@sveltejs/kit';
 import { getInitialProducts, getSearchProducts } from 'lib/product';
 
@@ -6,22 +8,22 @@ export const GET = async ({
 	url,
 	cookies
 }: {
-	locals: any;
+	locals: { supabase: SupabaseClient };
 	url: URL;
-	cookise: Cookies;
+	cookies: Cookies;
 }) => {
 	const search = url.searchParams.get('search');
 	const page = url.searchParams.get('page') ?? '0';
 	let skip = 0;
 	let errorHappened = false;
 
-	let initialReload = await cookies.get('initialReload');
+	let initialReload = cookies.get('initialReload');
 	if (!initialReload) {
-		await cookies.set('initialReload', 0, {
+		cookies.set('initialReload', '0', {
 			path: '/',
 			maxAge: 60 * 60 * 2
 		});
-		initialReload = 0;
+		initialReload = '0';
 	}
 
 	if (Number.isNaN(Number.parseInt(page))) {
@@ -46,7 +48,7 @@ export const GET = async ({
 	}
 
 	const productsWithImages = await Promise.all(
-		products.map(async (product: any) => {
+		products.map(async (product: Product) => {
 			const { data, error } = await supabase.storage
 				.from('velvet-line')
 				.getPublicUrl(`images/${product.image}`, {

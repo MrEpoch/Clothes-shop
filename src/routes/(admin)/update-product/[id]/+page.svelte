@@ -1,10 +1,10 @@
 <script lang="ts">
-    export let data;
+	export let data;
 
-    const { product }: { product: import("@prisma/client").Product } = data;
+	const { product }: { product: import('@prisma/client').Product } = data;
 
 	let image: null | File[] = null;
-    export let form: { error: null | string, message: null | string };
+	export let form: { error: null | string; message: null | string };
 </script>
 
 <div class="min-h-screen dark:bg-black/10 dark:text-white/90">
@@ -21,8 +21,8 @@
 					>
 					<input
 						type="text"
-                        name="name"
-                        value={product.name}
+						name="name"
+						value={product.name}
 						id="name"
 						class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
 						placeholder="Type product name"
@@ -35,7 +35,7 @@
 					>
 					<input
 						type="text"
-                        value={product.stripeProductId}
+						value={product.stripeProductId}
 						name="stripeId"
 						id="stripeId"
 						class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
@@ -50,8 +50,8 @@
 					<input
 						type="number"
 						name="price"
-                        step="0.01"
-                        value={product.price}
+						step="0.01"
+						value={product.price}
 						id="price"
 						class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
 						placeholder="$29"
@@ -64,8 +64,8 @@
 					>
 					<select
 						id="category"
-                        name="category"
-                        value={product.category}
+						name="category"
+						value={product.category}
 						class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
 					>
 						<option selected value="men">Men's</option>
@@ -80,7 +80,7 @@
 						class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label
 					>
 					<textarea
-                        value={product.description}
+						value={product.description}
 						id="description"
 						name="description"
 						rows="8"
@@ -89,25 +89,29 @@
 					/>
 				</div>
 				<div class="h-80 group relative sm:col-span-2">
-                    {#if image}
-                        <input type="hidden" name="isimage" value="true" />
+					{#if image}
+						<input type="hidden" name="isimage" value="true" />
 						<img
 							class="rounded-lg group-hover:brightness-50 transition w-full h-full object-cover"
 							src={URL.createObjectURL(image[1])}
 							alt=""
 						/>
 					{:else}
-                        <img
+						<img
 							class="rounded-lg group-hover:brightness-50 transition w-full h-full object-cover"
 							src={product.image}
 							alt=""
-                        />
-                        <h3 class="absolute group-hover:flex hidden transition top-2 h-full transition w-full items-center 
-                        justify-center font-extrabold text-xl">Update Image</h3>
+						/>
+						<h3
+							class="absolute group-hover:flex hidden transition top-2 h-full transition w-full items-center
+                        justify-center font-extrabold text-xl"
+						>
+							Update Image
+						</h3>
 					{/if}
-                    <input type="hidden" name="imagename" value={data?.imagename} />
-                    <input
-                        value={image}
+					<input type="hidden" name="imagename" value={data?.imagename} />
+					<input
+						value={image}
 						type="file"
 						bind:files={image}
 						class="absolute w-full h-full z-10 top-0 left-0 opacity-0 cursor-pointer"

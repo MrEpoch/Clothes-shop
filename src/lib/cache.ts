@@ -1,6 +1,15 @@
+import type { Product, User } from '@prisma/client';
+import type { User as UserSupa } from '@supabase/supabase-js';
 import redis from './redis';
+import type { RedisOrder } from 'types/product';
 
-export async function cacheData(key: string, data: any, expiration = 60 * 60 * 24) {
+export type possibleTypes = Product | User | UserSupa | number | RedisOrder;
+
+export async function cacheData(
+	key: string,
+	data: possibleTypes | possibleTypes[],
+	expiration = 60 * 60 * 24
+) {
 	try {
 		await redis.setex(key, expiration, JSON.stringify(data));
 	} catch (error) {
@@ -21,7 +30,7 @@ export async function getCachedData(key: string) {
 
 export async function searchCachedData(key: string, count: number) {
 	try {
-		const data: any[] = [];
+		const data: possibleTypes[] = [];
 		const cache = redis.scanStream({
 			match: key,
 			type: 'string',
@@ -29,8 +38,8 @@ export async function searchCachedData(key: string, count: number) {
 		});
 		for await (const key of cache) {
 			await Promise.all(
-				await key.map(async (product: any) => {
-					const product_redis = await redis.get(product);
+				await key.map(async (keyId: string) => {
+					const product_redis = await redis.get(keyId);
 					if (product_redis) data.push(JSON.parse(product_redis));
 				})
 			);

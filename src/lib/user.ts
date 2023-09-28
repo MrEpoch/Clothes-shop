@@ -1,7 +1,8 @@
 import { redirect } from '@sveltejs/kit';
 import { prisma } from './db';
+import type { User } from '@supabase/supabase-js';
 
-export const handleUser = async (user) => {
+export const handleUser = async (user: User) => {
 	try {
 		const user_db = await prisma.user.findUnique({
 			where: {

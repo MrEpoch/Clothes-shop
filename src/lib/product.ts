@@ -110,8 +110,7 @@ export const createProduct = async (
 	stripeId: string,
 	image_name: string
 ) => {
-    try {
-
+	try {
 		const product = await prisma.product.create({
 			data: {
 				name,
@@ -124,7 +123,7 @@ export const createProduct = async (
 		});
 
 		await cacheData(`product:${product.id}`, product);
-        await cacheData(`product:${product.name}`, product);
+		await cacheData(`product:${product.name}`, product);
 		await removeFromCachedProducts(`initial`);
 		await removeFromCachedProducts('count');
 		return product;
@@ -141,13 +140,13 @@ export const updateProduct = async (
 	price: number,
 	stripeId: string,
 	image_name: string,
-    id: string
+	id: string
 ) => {
 	try {
-        const product = await prisma.product.update({
-            where: {
-                id
-            },
+		const product = await prisma.product.update({
+			where: {
+				id
+			},
 			data: {
 				name,
 				description,
@@ -160,7 +159,7 @@ export const updateProduct = async (
 
 		await cacheData(`product:${product.id}`, product);
 		await removeFromCachedProducts(`initial`);
-        await removeFromCachedProducts(`onep:${product.id}`);
+		await removeFromCachedProducts(`onep:${product.id}`);
 		return product;
 	} catch (e) {
 		console.log(e);
@@ -178,8 +177,8 @@ export const deleteProduct = async (id: string) => {
 
 		await removeFromCachedProducts(`product:${id}`);
 		await removeFromCachedProducts(`initial`);
-        await removeFromCachedProducts('count');
-        await removeFromCachedProducts(`onep:${deleted.id}`);
+		await removeFromCachedProducts('count');
+		await removeFromCachedProducts(`onep:${deleted.id}`);
 
 		return deleted;
 	} catch (e) {

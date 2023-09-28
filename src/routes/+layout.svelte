@@ -16,7 +16,7 @@
 	$: ({ supabase, session } = data);
 
 	onMount(() => {
-		const { data } = supabase.auth.onAuthStateChange((event, _session) => {
+		const { data } = supabase.auth.onAuthStateChange((_, _session) => {
 			if (_session?.expires_at !== session?.expires_at) {
 				invalidate('supabase:auth');
 			}
@@ -37,9 +37,9 @@
 
 <div class="relative" class:dark>
 	<Header {showCart} />
-    <Transition url={data.url}>
-        <slot />
-    </Transition>
+	<Transition url={data.url}>
+		<slot />
+	</Transition>
 	<Footer />
 
 	{#if shown_cart}

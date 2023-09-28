@@ -6,7 +6,7 @@ const options = {
 	threshold: 0
 };
 
-export const lazyLoad = (image, src) => {
+export const lazyLoad = (image: HTMLImageElement, src: string) => {
 	const loaded = () => {
 		image.style.opacity = '1';
 	};

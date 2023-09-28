@@ -14,10 +14,7 @@
 				>
 			</li>
 			<li>
-				<a
-					href="/about"
-					class="mr-4 hover:underline md:mr-6">About</a
-				>
+				<a href="/about" class="mr-4 hover:underline md:mr-6">About</a>
 			</li>
 
 			<li>

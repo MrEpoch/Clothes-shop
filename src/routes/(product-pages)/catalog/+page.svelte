@@ -8,7 +8,7 @@
 
 	let selected: categories = category as unknown as categories;
 
-	function searchChange(evt) {
+	function searchChange(evt: any) {
 		searchTerm = evt.target.value;
 	}
 </script>

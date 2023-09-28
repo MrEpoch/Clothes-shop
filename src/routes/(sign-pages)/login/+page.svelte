@@ -1,6 +1,5 @@
 <script lang="ts">
-    export let data;
-    export let form: { error: boolean, message: string };
+	export let data;
 
 	let { supabase } = data;
 	$: ({ supabase } = data);

@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
 	import { FileIcon } from 'svelte-feather-icons';
 
-	let image = null;
+	let image: null | FileList = null;
 	export let form;
 </script>
 

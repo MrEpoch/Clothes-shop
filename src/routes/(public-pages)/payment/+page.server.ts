@@ -4,7 +4,7 @@ import { makeOrder } from '$lib/order';
 import { countries } from './countries';
 
 export const actions: Actions = {
-	default: async ({ locals: { getSession }, request, cookies }) => {
+	default: async ({ request }) => {
 		const data = await request.formData();
 
 		const standardString = z.string().min(2);

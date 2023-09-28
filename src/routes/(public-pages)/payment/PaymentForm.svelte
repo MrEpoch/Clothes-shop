@@ -9,7 +9,6 @@
 	const phone = '123-456-789';
 	const city = 'Fake City';
 	const postal_code = '12345';
-	const country = 'Fake Country';
 	const email = 'alex@alex.alex';
 </script>
 
