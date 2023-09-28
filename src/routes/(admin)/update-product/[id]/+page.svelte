@@ -7,12 +7,15 @@
 	export let form: { error: null | string; message: null | string };
 </script>
 
-<div class="min-h-screen dark:bg-black/10 dark:text-white/90">
+<div class="min-h-screen dark:bg-black/10 dark:text-white/90 py-[5rem]">
 	{#if form?.error}
 		<p class="text-red-500">{form.message}</p>
 	{/if}
-	<div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
-		<h2 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white">Add a new product</h2>
+	<div class="py-8 px-4 mx-auto max-w-2xl lg:py-16 relative">
+		<h2 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white">Update Product</h2>
+        <form action="?/delete" method="POST" class="absolute top-2 right-2">
+            <button type="submit" class="hover:bg-red-600 transition bg-red-500 px-4 py-2 rounded-md text-white">Delete</button>
+        </form>
 		<form action="?/update" method="POST" enctype="multipart/form-data">
 			<div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
 				<div class="sm:col-span-2">

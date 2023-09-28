@@ -1,6 +1,6 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
 import { redirect, type Actions, fail } from '@sveltejs/kit';
-import { getProduct, updateProduct } from 'lib/product';
+import { deleteProduct, getProduct, updateProduct } from 'lib/product';
 import type { categories as ctgr } from 'types/product';
 import { z } from 'zod';
 
@@ -102,7 +102,26 @@ export const actions: Actions = {
 						message: 'Error uploading image'
 					});
 				}
+
+
+                const deleted = await supabase.storage
+				.from('velvet-line')
+				.delete(`images/${imagename}`);
+
+                if (deleted.error) {
+                    return fail(500, {
+                        error: true,
+                        message: 'Error deleting image'
+                    })
+                }
+
 				imagename = new_image_name;
+
+			if (error)
+				return fail(500, {
+					error: true,
+					message: 'Error uploading image'
+				});
 			}
 
 			if (Number.isNaN(Number.parseFloat(price.data))) {
@@ -134,5 +153,29 @@ export const actions: Actions = {
 		}
 		throw redirect(303, '/update-product');
 	},
-	delete: async ({ request, params }) => {}
+    delete: async ({ params, locals: { supabase } }: { params: { id: string }, locals: { supabase: SupabaseClient } }) => {
+        const id = String(params.id);
+        const product = await deleteProduct(id);
+
+        if (!product) {
+            throw redirect(303, '/update-product');
+        }
+
+        try {
+            const deleted = await supabase.storage
+                    .from('velvet-line')
+                    .remove([`images/${product.image}`]);
+
+            if (deleted.error) {
+                return fail(500, {
+                    error: true,
+                    message: 'Error deleting image'
+                })
+            }
+        } catch (error) {
+            throw redirect(303, '/update-product');
+        }
+
+        throw redirect(303, '/update-product');
+    }
 };

@@ -61,7 +61,10 @@ export const actions: Actions = {
 				postalcode.data,
 				name.data,
 				orderId
-			);
+            );
+            if (order && order.notfound) {
+                return fail(400, { message: 'Order failed', failed: true, empty: order.notfound });
+            }
 			if (!order) {
 				return fail(400, { message: 'Order failed', failed: true });
 			}
