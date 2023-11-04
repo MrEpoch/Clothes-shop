@@ -71,7 +71,7 @@
 								<a
 									on:click={showCart}
 									href="/payment"
-									class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+									class="flex items-center justify-center rounded-md border border-transparent bg-violet-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-violet-700"
 									>Checkout</a
 								>
 							</div>
@@ -81,7 +81,7 @@
 									<button
 										type="button"
 										on:click={showCart}
-										class="font-medium text-indigo-600 hover:text-indigo-500"
+										class="font-medium text-violet-600 hover:text-violet-500"
 									>
 										Continue Shopping
 										<span aria-hidden="true"> &rarr;</span>

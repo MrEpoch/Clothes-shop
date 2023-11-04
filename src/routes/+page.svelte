@@ -37,7 +37,7 @@
 </script>
 
 <div
-	class="min-h-screen flex flex-col items-center justify-center dark:bg-black/10 dark:text-white/90"
+	class="min-h-screen flex flex-col items-center justify-center dark:darkmode-500 dark:text-gray-100"
 >
 	<div
 		class={`min-h-screen flex w-full absolute z-[-1] top-0 bg-gray-200 dark:bg-gray-800 ${
@@ -49,7 +49,7 @@
 			use:lazyLoad={BuyingClothes}
 			alt="Buying Clothes"
 			class="
-         opacity-0 min-h-full w-full object-cover dark:brightness-7 dark:brightness-755"
+         opacity-0 min-h-full w-full object-cover dark:brightness-7 dark:brightness-90"
 		/>
 	</div>
 	<section class="mt-[10rem] min-h-screen flex w-full p-5 sm:p-10 flex-col">
@@ -80,8 +80,8 @@
 					href="/catalog"
 					class="inline-flex justify-center items-center sm:py-3 py-1.5 text-sm
                     sm:px-5 px-2.5 sm:text-base font-medium max-w-[200px] text-center text-white rounded-lg
-                    bg-gradient-to-r from-violet-500 to-pink-500 hover:bg-blue-800
-                    focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+                    bg-gradient-to-r from-violet-500 to-pink-500 hover:bg-violet-800
+                    focus:ring-4 focus:ring-violet-300 dark:focus:ring-violet-900"
 				>
 					Catalog
 					<svg
@@ -110,13 +110,13 @@
             h-full relative max-w-screen-xl lg:py-24"
 		>
 			<img
-				class="w-full z-[-1] min-h-full brightness-75 h-full object-cover absolute"
+				class="w-full z-[-1] min-h-full blur-[5px] brightness-50 h-full object-cover absolute"
 				src={Sale}
 				alt="Buying Clothes"
 			/>
 			<div class="min-h-full w-full flex flex-col items-center justify-around">
 				<h2
-					class="mb-4 text-center text-2xl sm:text-4xl font-bold tracking-tight leading-none text-white md:text-5xl lg:text-6xl dark:text-white"
+					class="mb-4 text-center text-2xl sm:text-4xl font-bold tracking-tight leading-none text-white md:text-5xl lg:text-6xl "
 				>
 					{ad_info.title}
 				</h2>
@@ -126,8 +126,8 @@
 				<a
 					href="/catalog"
 					class="bg-gradient-to-r from-violet-400 to-pink-400
-                    hover:bg-blue-800 focus:ring-4 text-white focus:ring-blue-300 font-medium
-                    rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-blue-900"
+                    hover:bg-violet-800 focus:ring-4 text-white focus:ring-violet-300 font-medium
+                    rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-violet-900"
 				>
 					Buy Now
 				</a>

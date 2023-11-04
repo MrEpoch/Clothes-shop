@@ -10,29 +10,17 @@
 	const handle_login_github = async () => {
 		await supabase.auth.signInWithOAuth({
 			provider: 'github',
-			options: {
-				redirectTo: `${data.url}/auth/callback`
-			}
 		});
 	};
 
-	const handle_login_google = async () => {
-		await supabase.auth.signInWithOAuth({
-			provider: 'google',
-			options: {
-				redirectTo: `${data.url}/auth/callback`
-			}
-		});
-	};
 </script>
-
 <div
-	class="flex pb-[7rem] dark:bg-black/10 dark:text-white/90 justify-center gap-[3rem] flex-col bg-gray-100/40 items-center min-h-screen"
+	class="flex pb-[7rem] dark:bg-darkmode-500 dark:text-white/90 justify-center gap-[3rem] flex-col  items-center min-h-screen"
 >
-	<h1 class="sm:text-5xl text-3xl py-[5rem] mb-6 font-thin">Log In</h1>
+	<h1 class="sm:text-5xl text-3xl py-[5rem] mb-6 font-bold">Log In</h1>
 	<form
-		class="dark:bg-black/20 max-w-[500px] w-full shadow bg-white mb-[5rem] relative
-        rounded p-[2rem] sm:py-[5rem] py-[4rem] sm:p-[5rem] flex flex-col gap-[3rem]"
+		class="dark:bg-darkmode-400 dark:border-2 dark:border-darkmode-200 rounded-lg max-w-[500px] w-full shadow bg-white mb-4 relative
+        p-[2rem] sm:py-[5rem] py-[4rem] sm:p-[5rem] flex flex-col gap-[3rem]"
 		method="POST"
 	>
 		<svg
@@ -51,7 +39,7 @@
 				name="email"
 				minlength="3"
 				bind:value={email}
-				class="dark:bg-black/10 outline-none border-[1px] border-gray-600/50 rounded-[10px] p-3"
+				class="dark:bg-darkmode-300 outline-none border-[1px] border-gray-600/50 rounded-[10px] p-3"
 				placeholder="Email"
 			/>
 		</div>
@@ -61,7 +49,7 @@
 				type="password"
 				name="password"
 				bind:value={password}
-				class="dark:bg-black/10 outline-none border-[1px] border-gray-600/50 rounded-[10px] p-3"
+				class="dark:bg-darkmode-300 outline-none border-[1px] border-gray-600/50 rounded-[10px] p-3"
 				id="password"
 				placeholder="Password"
 			/>
@@ -69,7 +57,7 @@
 		<div class="flex justify-center">
 			<button
 				type="submit"
-				class="py-2 p-8 rounded-[6px] bg-black text-white font-light text-lg hover:bg-gray-800 transition-all"
+				class="py-2 p-8 rounded-[6px] bg-violet-500 dark:bg-violet-600 text-white font-base text-lg dark:hover:bg-violet-700 hover:bg-violet-700 transition-all"
 				>Log In</button
 			>
 		</div>
@@ -77,12 +65,11 @@
 	<button
 		on:click={handle_login_github}
 		class="text-black text-lg dark:text-white/90 font-light hover:underline"
-		>Sign in with GitHub</button
-	>
-	<button
-		on:click={handle_login_google}
-		class="text-black text-lg dark:text-white/90 font-light hover:underline"
-		>Sign in with Google</button
+    >
+    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+      <path fill-rule="evenodd" d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z" clip-rule="evenodd"/>
+    </svg>
+  </button
 	>
 	<a href="/register" class="text-black text-lg dark:text-white/90 font-light hover:underline"
 		>Don't have an account? Register</a

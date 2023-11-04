@@ -12,7 +12,7 @@
 	}
 </script>
 
-<nav class="dark:bg-black/10 dark:text-white/90">
+<nav class="bg-transparent">
 	<div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
 		<a href="/" class="flex items-center">
 			<div class="sm:h-24 h-12 w-12 mr-3 sm:w-24 scale-125">
@@ -56,7 +56,7 @@
 				<li>
 					<a
 						href="/"
-						class="block py-2 text-xl pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent
+						class="block py-2 text-xl pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-violet-700 md:p-0 dark:text-white md:dark:hover:text-violet-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent
                 ">Home</a
 					>
 				</li>
@@ -64,7 +64,7 @@
 				<li>
 					<a
 						href="/about"
-						class="block py-2 text-xl pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent
+						class="block py-2 text-xl pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-violet-700 md:p-0 dark:text-white md:dark:hover:text-violet-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent
                 ">About</a
 					>
 				</li>
@@ -72,7 +72,7 @@
 				<li>
 					<a
 						href="/catalog"
-						class="block py-2 text-xl pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent
+						class="block py-2 text-xl pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-violet-700 md:p-0 dark:text-white md:dark:hover:text-violet-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent
                 ">Catalog</a
 					>
 				</li>
@@ -80,7 +80,7 @@
 				<li>
 					<a
 						href="/contact"
-						class="block py-2 text-xl pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+						class="block py-2 text-xl pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-violet-700 md:p-0 dark:text-white md:dark:hover:text-violet-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
 						>Contact</a
 					>
 				</li>
@@ -88,14 +88,14 @@
 					on:click={showCart}
 					class="flex items-center md:justify-center w-full text-start
                 py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0
-                md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 relative
+                md:hover:text-violet-700 md:p-0 dark:text-white md:dark:hover:text-violet-500 relative
                 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
 				>
 					<ShoppingCartIcon class="w-8 dark:text-white font-bold text-black" />
 					{#if $cart.length > 0}
 						<div
 							class="absolute inline-flex items-center justify-center w-5 h-5 text-xs
-                        font-bold text-white bg-red-500 rounded-full -top-3 -right-3"
+                        font-bold text-white bg-violet-500 rounded-full -top-3 -right-3"
 						>
 							{$cart.length}
 						</div>
@@ -105,7 +105,7 @@
 					on:click={SwitchTheme}
 					class="flex items-center md:justify-center w-full text-start
                 py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0
-                md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500
+                md:hover:text-violet-700 md:p-0 dark:text-white md:dark:hover:text-violet-500
                 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
 				>
 					<SunIcon class="w-8 dark:text-white font-bold text-black" />
@@ -114,7 +114,7 @@
 					href="/account"
 					class="flex items-center md:justify-center w-full text-start
                 py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0
-                md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500
+                md:hover:text-violet-700 md:p-0 dark:text-white md:dark:hover:text-violet-500
                 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
 				>
 					<UserIcon class="w-8 dark:text-white font-bold text-black" />

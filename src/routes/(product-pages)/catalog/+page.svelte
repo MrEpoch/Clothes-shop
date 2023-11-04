@@ -13,9 +13,9 @@
 	}
 </script>
 
-<div class="min-h-screen gap-[3rem] py-[7rem] flex flex-col dark:bg-black/10 dark:text-white/90">
+<div class="min-h-screen gap-[3rem] py-[7rem] flex flex-col dark:bg-darkmode-500 dark:text-gray-100">
 	<h2
-		class="text-5xl mx-auto w-full py-8 px-2 max-w-5xl mb-6 font-medium text-center font-eczar pt-[2rem]"
+		class="text-5xl mx-auto w-full py-8 px-2 max-w-5xl mb-6 font-bold text-center  pt-[2rem]"
 	>
 		Our Products
 	</h2>
@@ -68,18 +68,18 @@
 					value={searchTerm}
 					class="block
                 w-full p-4 pl-10 text-[9px] sm:text-sm
-                text-gray-900 border border-gray-300 rounded bg-gray-50 focus:ring-blue-500
-                focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
-                dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                text-gray-900 border border-gray-300 rounded bg-gray-50 focus:ring-violet-500
+                focus:border-violet-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
+                dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500"
 					placeholder="Search products"
 				/>
 				<button
 					type="submit"
 					class="text-white absolute right-2.5 sm:bottom-2.5
                     bottom-[0.4rem] bg-gradient-to-r dark:from-violet-800 from-violet-500 to-pink-400
-                    dark:to-pink-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300
-                    font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700
-                dark:focus:ring-blue-800">Search</button
+                    dark:to-pink-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-violet-300
+                    font-medium rounded-lg text-sm px-4 py-2 dark:bg-violet-600 dark:hover:bg-violet-700
+                dark:focus:ring-violet-800">Search</button
 				>
 			</div>
 		</form>

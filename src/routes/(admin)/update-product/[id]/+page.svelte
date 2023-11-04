@@ -7,7 +7,7 @@
 	export let form: { error: null | string; message: null | string };
 </script>
 
-<div class="min-h-screen dark:bg-black/10 dark:text-white/90 py-[5rem]">
+<div class="min-h-screen dark:bg-darkmode-500 dark:text-gray-100 py-[5rem]">
 	{#if form?.error}
 		<p class="text-red-500">{form.message}</p>
 	{/if}
@@ -126,8 +126,8 @@
 				type="submit"
 				class="w-full items-center
                 px-5 py-3 mt-4 sm:mt-6 text-sm font-medium text-center
-                text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200
-                dark:focus:ring-blue-900 hover:bg-blue-800"
+                text-white bg-violet-700 rounded-lg focus:ring-4 focus:ring-violet-200
+                dark:focus:ring-violet-900 hover:bg-violet-800"
 			>
 				Update product
 			</button>

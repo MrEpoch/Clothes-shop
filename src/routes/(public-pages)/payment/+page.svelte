@@ -37,7 +37,7 @@
 	}
 </script>
 
-<div class="min-h-screen w-full relative flex flex-col dark:bg-black/10 dark:text-white/90">
+<div class="min-h-screen w-full relative flex flex-col dark:bg-darkmode-500 dark:text-gray-100">
 	<Stepper {currentStep} />
 	<div class="w-full min-h-full flex flex-col max-w-7xl mx-auto p-4">
 		{#if currentStep === 0}
@@ -45,9 +45,9 @@
 			<button
 				type="submit"
 				class="text-white
-                bg-blue-700 hover:bg-blue-800 focus:ring-4
-                focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5
-                items-centerring-blue-800"
+                bg-violet-700 hover:bg-violet-800 focus:ring-4
+                focus:outline-none focus:ring-violet-300 font-medium rounded-lg text-sm px-5 py-2.5
+                items-centerring-violet-800"
 				on:click={nextStep}
 			>
 				Shipping Information

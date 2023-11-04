@@ -49,17 +49,11 @@ export const GET = async ({
 
 	const productsWithImages = await Promise.all(
 		products.map(async (product: Product) => {
-			const { data, error } = await supabase.storage
+			const { data } = supabase.storage
 				.from('velvet-line')
-				.getPublicUrl(`images/${product.image}`, {
-					format: 'webp'
-				});
-			if (error) {
-				errorHappened = true;
-			} else {
+				.getPublicUrl(`images/${product.image}`);
 				product.image = data.publicUrl;
 				return product;
-			}
 		})
 	);
 

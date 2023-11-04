@@ -3,11 +3,11 @@
 </script>
 
 <div
-	class="min-h-screen w-full flex items-center justify-center flex-col gap-[2rem] relative dark:bg-black/10 dark:text-white/90"
+	class="min-h-screen w-full flex items-center justify-center flex-col gap-[2rem] relative dark:bg-darkmode-500 dark:text-gray-100"
 >
 	<form action="?/logout" method="POST">
 		<button
-			class="text-white bg-blue-700 py-3 px-3 rounded-full absolute top-1 right-5"
+			class="text-white bg-violet-700 py-3 px-3 rounded-full absolute top-1 right-5"
 			type="submit"
 		>
 			<svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"

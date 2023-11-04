@@ -42,7 +42,7 @@
 	];
 </script>
 
-<div class="min-h-screen py-[5rem] dark:bg-black/10 relative dark:text-white/90">
+<div class="min-h-screen py-[5rem] dark:bg-darkmode-500 relative dark:text-gray-100">
 	<div
 		class="max-w-screen-xl flex flex-wrap justify-center
         mx-auto px-4 lg:p-16 gap-[2rem]"

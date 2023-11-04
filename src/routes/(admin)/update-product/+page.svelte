@@ -4,7 +4,7 @@
 	export let form: { success: boolean; error: boolean; data: Product[] | undefined };
 </script>
 
-<div class="min-h-screen dark:bg-black/10 dark:text-white/90">
+<div class="min-h-screen dark:bg-darkmode-500 dark:text-gray-100">
 	<div
 		class="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8 relative
         flex items-center justify-center"
@@ -17,7 +17,7 @@
 			</div>
 			<button
 				on:click={() => (form.data = undefined)}
-				class="px-4 py-2 bg-blue-500 text-white rounded absolute top-2 right-2">Search</button
+				class="px-4 py-2 bg-violet-500 text-white rounded absolute top-2 right-2">Search</button
 			>
 		{:else}
 			<form method="POST" class="w-full" action="?/search">
@@ -47,13 +47,13 @@
 						name="search"
 						type="search"
 						id="default-search"
-						class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-violet-500 focus:border-violet-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500"
 						placeholder="Search Products To Update"
 						required
 					/>
 					<button
 						type="submit"
-						class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+						class="text-white absolute right-2.5 bottom-2.5 bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-violet-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-violet-600 dark:hover:bg-violet-700 dark:focus:ring-violet-800"
 						>Search</button
 					>
 				</div>

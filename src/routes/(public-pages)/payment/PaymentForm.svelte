@@ -24,7 +24,7 @@
 				name="full_name"
 				type="text"
 				id="last_name"
-				class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+				class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500"
 				placeholder="Anna Redwood"
 				required
 			/>
@@ -38,7 +38,7 @@
 				name="address"
 				type="text"
 				id="address"
-				class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+				class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500"
 				placeholder="Local street 123"
 				required
 			/>
@@ -52,7 +52,7 @@
 				name="phone"
 				type="tel"
 				id="phone"
-				class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+				class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500"
 				placeholder="123-455-678"
 				pattern="/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/"
 				required
@@ -67,7 +67,7 @@
 				type="text"
 				id="city"
 				name="city"
-				class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+				class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500"
 				placeholder="City"
 				required
 			/>
@@ -81,7 +81,7 @@
 				type="text"
 				name="postal_code"
 				id="postalcode"
-				class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+				class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500"
 				placeholder="Postal Code"
 				required
 			/>
@@ -96,7 +96,7 @@
 			type="email"
 			id="email"
 			name="email"
-			class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+			class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500"
 			placeholder="john.doe@company.com"
 			required
 		/>
@@ -108,7 +108,7 @@
 		<select
 			name="country"
 			id="countries"
-			class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+			class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500"
 		>
 			<option selected>Canada</option>
 			{#each countries as country}
@@ -123,14 +123,14 @@
 				type="checkbox"
 				checked={true}
 				value=""
-				class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+				class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-violet-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-violet-600 dark:ring-offset-gray-800"
 				required
 			/>
 		</div>
 		<label for="remember" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
 			>I agree with the <a
 				href="/legal/terms-&-condition"
-				class="text-blue-600 hover:underline dark:text-blue-500">terms and conditions</a
+				class="text-violet-600 hover:underline dark:text-violet-500">terms and conditions</a
 			>.</label
 		>
 	</div>
@@ -141,14 +141,14 @@
 				type="checkbox"
 				checked={true}
 				value=""
-				class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+				class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-violet-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-violet-600 dark:ring-offset-gray-800"
 				required
 			/>
 		</div>
 		<label for="remember" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
 			>I understand <a
 				href="https://www.termsfeed.com/live/2fb80a47-7a52-4b5e-9665-5e25c1da5240"
-				class="text-blue-600 hover:underline dark:text-blue-500">refund policy</a
+				class="text-violet-600 hover:underline dark:text-violet-500">refund policy</a
 			>.</label
 		>
 	</div>
@@ -156,9 +156,9 @@
 	<button
 		type="submit"
 		class="text-white
-            bg-blue-700 hover:bg-blue-800 focus:ring-4
-            focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5
-            items-centerring-blue-800"
+            bg-violet-700 hover:bg-violet-800 focus:ring-4
+            focus:outline-none focus:ring-violet-300 font-medium rounded-lg text-sm px-5 py-2.5
+            items-centerring-violet-800"
 	>
 		Process Payment
 	</button>
@@ -174,7 +174,7 @@
 				name="full_name"
 				type="text"
 				id="last_name"
-				class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+				class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500"
 				placeholder="Anna Redwood"
 				required
 			/>
@@ -188,7 +188,7 @@
 				name="address"
 				type="text"
 				id="address"
-				class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+				class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500"
 				placeholder="Local street 123"
 				required
 			/>
@@ -202,7 +202,7 @@
 				name="phone"
 				type="tel"
 				id="phone"
-				class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+				class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500"
 				placeholder="123-455-678"
 				pattern="/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/"
 				required
@@ -217,7 +217,7 @@
 				type="text"
 				id="city"
 				name="city"
-				class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+				class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500"
 				placeholder="City"
 				required
 			/>
@@ -231,7 +231,7 @@
 				type="text"
 				name="postal_code"
 				id="postalcode"
-				class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+				class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500"
 				placeholder="Postal Code"
 				required
 			/>
@@ -246,7 +246,7 @@
 			type="email"
 			id="email"
 			name="email"
-			class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+			class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500"
 			placeholder="john.doe@company.com"
 			required
 		/>
@@ -258,7 +258,7 @@
 		<select
 			name="country"
 			id="countries"
-			class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+			class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500"
 		>
 			<option selected>Canada</option>
 			{#each countries as country}
@@ -273,23 +273,23 @@
 				type="checkbox"
 				checked={true}
 				value=""
-				class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+				class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-violet-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-violet-600 dark:ring-offset-gray-800"
 				required
 			/>
 		</div>
 		<label for="remember" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
 			>I agree with the <a
 				href="/legal/terms-&-condition"
-				class="text-blue-600 hover:underline dark:text-blue-500">terms and conditions</a
+				class="text-violet-600 hover:underline dark:text-violet-500">terms and conditions</a
 			>.</label
 		>
 	</div>
 	<button
 		type="submit"
 		class="text-white
-            bg-blue-700 hover:bg-blue-800 focus:ring-4
-            focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5
-            items-centerring-blue-800"
+            bg-violet-700 hover:bg-violet-800 focus:ring-4
+            focus:outline-none focus:ring-violet-300 font-medium rounded-lg text-sm px-5 py-2.5
+            items-centerring-violet-800"
 	>
 		Process Payment
 	</button>

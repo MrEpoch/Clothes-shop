@@ -17,7 +17,7 @@
 		alt={category.category}
 		on:load={() => (isAnimating = false)}
 		class="
-    w-full brightness-50 opacity-0 h-full object-cover bg-no-repeat"
+    w-full brightness-75 dark:brightness-50 opacity-0 h-full object-cover bg-no-repeat"
 	/>
 	<h3
 		class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl font-bold text-white"

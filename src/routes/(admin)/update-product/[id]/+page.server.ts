@@ -29,7 +29,7 @@ export const load = async ({
 };
 
 export const actions: Actions = {
-	update: async ({ request, locals: { supabase }, params }) => {
+    update: async ({ request, locals: { supabase }, params }: { request: any, locals: { supabase: SupabaseClient }, params: { id: string }}) => {
 		try {
 			const data = await request.formData();
 
@@ -106,7 +106,7 @@ export const actions: Actions = {
 
                 const deleted = await supabase.storage
 				.from('velvet-line')
-				.delete(`images/${imagename}`);
+				.remove([`images/${imagename}`]);
 
                 if (deleted.error) {
                     return fail(500, {
@@ -152,7 +152,8 @@ export const actions: Actions = {
 			});
 		}
 		throw redirect(303, '/update-product');
-	},
+    },
+
     delete: async ({ params, locals: { supabase } }: { params: { id: string }, locals: { supabase: SupabaseClient } }) => {
         const id = String(params.id);
         const product = await deleteProduct(id);

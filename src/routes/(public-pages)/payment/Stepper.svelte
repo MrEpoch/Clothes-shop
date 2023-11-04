@@ -2,13 +2,13 @@
 	export let currentStep = 0;
 
 	const buttonStates = {
-		colored: `flex w-full items-center text-blue-600 dark:text-blue-500 after:content-[''] 
-            after:w-full after:h-1 after:border-b after:border-blue-100 after:border-4 after:inline-block 
-            dark:after:border-blue-800`,
+		colored: `flex w-full items-center text-violet-600 dark:text-violet-500 after:content-[''] 
+            after:w-full after:h-1 after:border-b after:border-violet-100 after:border-4 after:inline-block 
+            dark:after:border-violet-800`,
 		gray: `flex w-full items-center after:content-[''] 
             after:w-full after:h-1 after:border-b after:border-gray-100 after:border-4 
             after:inline-block dark:after:border-gray-700`,
-		coloredInside: `flex items-center justify-center w-10 h-10 bg-blue-100 rounded-full lg:h-12 lg:w-12 dark:bg-blue-800 shrink-0`,
+		coloredInside: `flex items-center justify-center w-10 h-10 bg-violet-100 rounded-full lg:h-12 lg:w-12 dark:bg-violet-800 shrink-0`,
 		grayInside: `flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0`
 	};
 </script>
@@ -17,7 +17,7 @@
 	<li class={buttonStates.colored}>
 		<div class={buttonStates.coloredInside}>
 			<svg
-				class="w-4 h-4 text-blue-600 lg:w-6 lg:h-6 dark:text-blue-300"
+				class="w-4 h-4 text-violet-600 lg:w-6 lg:h-6 dark:text-violet-300"
 				aria-hidden="true"
 				xmlns="http://www.w3.org/2000/svg"
 				fill="currentColor"
@@ -32,7 +32,7 @@
 	<li class={currentStep > 0 ? buttonStates.colored : buttonStates.gray}>
 		<div class={currentStep > 0 ? buttonStates.coloredInside : buttonStates.grayInside}>
 			<svg
-				class="w-4 h-4 text-blue-600 lg:w-6 lg:h-6 dark:text-blue-300"
+				class="w-4 h-4 text-violet-600 lg:w-6 lg:h-6 dark:text-violet-300"
 				aria-hidden="true"
 				xmlns="http://www.w3.org/2000/svg"
 				fill="currentColor"
@@ -51,7 +51,7 @@
                 dark:bg-gray-700 shrink-0"
 		>
 			<svg
-				class="w-4 h-4 text-blue-600 lg:w-6 lg:h-6 dark:text-blue-300"
+				class="w-4 h-4 text-violet-600 lg:w-6 lg:h-6 dark:text-violet-300"
 				aria-hidden="true"
 				xmlns="http://www.w3.org/2000/svg"
 				fill="currentColor"

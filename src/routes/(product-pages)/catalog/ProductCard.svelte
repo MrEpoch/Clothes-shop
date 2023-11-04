@@ -2,6 +2,7 @@
 	import { goto } from '$app/navigation';
 	import type { categories } from 'lib/product';
 	import { cart } from 'lib/store';
+  import { fly } from "svelte/transition";
 
 	import type { Product } from 'types/product';
 
@@ -61,6 +62,8 @@
 
 {#if !hiddenModal}
 	<div
+    in:fly
+    out:fly
 		tabindex="-1"
 		class="fixed top-0 left-0 right-0 z-50
         w-full p-4 overflow-x-hidden
@@ -72,7 +75,7 @@
 			on:click={() => (hiddenModal = true)}
 		/>
 		<div class="relative w-full max-w-2xl overflow-y-auto z-[52] max-h-full">
-			<div class="relative bg-white rounded-lg shadow dark:bg-gray-900">
+			<div class="relative bg-white rounded-lg shadow dark:bg-darkmode-400">
 				<div class="flex items-start justify-between p-4 rounded-t dark:border-gray-600">
 					<h3 class="text-xl font-semibold text-gray-900 dark:text-white">{product.name}</h3>
 					<button
@@ -113,7 +116,7 @@
 						on:click={addToCart}
 						type="button"
 						class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4
-                        focus:outline-none focus:ring-blue-300 rounded-lg
+                        focus:outline-none focus:ring-violet-300 rounded-lg
                         text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700
                         dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-600
                         dark:focus:ring-gray-600 text-center">Add to Cart</button
@@ -121,9 +124,9 @@
 					<button
 						on:click={addToCartAndPay}
 						type="button"
-						class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4
-                        focus:outline-none focus:ring-blue-300 font-medium rounded-lg
-                        text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+						class="text-white bg-violet-700 hover:bg-violet-800 focus:ring-4
+                        focus:outline-none focus:ring-violet-300 font-medium rounded-lg
+                        text-sm px-5 py-2.5 text-center dark:bg-violet-600 dark:hover:bg-violet-700 dark:focus:ring-violet-800"
 						>Checkout</button
 					>
 				</div>
