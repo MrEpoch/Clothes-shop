@@ -26,7 +26,7 @@
 		<button
 			on:click={() => (hidden = !hidden)}
 			type="button"
-			class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+			class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-black rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-600"
 			aria-controls="navbar-default"
 			aria-expanded="false"
 		>
@@ -47,7 +47,7 @@
 				/>
 			</svg>
 		</button>
-		<div class={`${hidden ? 'hidden' : ''} w-full md:block md:w-auto`} id="navbar-default">
+		<div class={`${hidden ? 'hidden' : ''} w-full backdrop-blur md:backdrop-blur-0 md:block md:w-auto`} id="navbar-default">
 			<ul
 				class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100
             rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0

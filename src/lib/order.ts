@@ -34,7 +34,8 @@ export const makeOrder = async (
 	city: string,
 	postalcode: string,
 	name: string,
-	orderId: string
+  orderId: string,
+  url: URL
 ) => {
 	try {
 		const products: Product[] = (await mapOverOrders(order)) as Product[];
@@ -53,10 +54,10 @@ export const makeOrder = async (
 			{
 				line_items: orders,
 				mode: 'payment',
-				success_url: dev
+				success_url: url.hostname.includes('localhost')
 					? `http://localhost:5173/payment/success?order=${orderId}`
 					: `https://clothes-shop-ten.vercel.app/payment/success?order=${orderId}`,
-				cancel_url: dev
+				cancel_url: url.hostname.includes('localhost')
 					? `http://localhost:5173/payment/cancel`
 					: 'https://clothes-shop-ten.vercel.app/payment/cancel'
 			},

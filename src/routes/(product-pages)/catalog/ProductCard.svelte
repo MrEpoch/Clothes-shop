@@ -77,7 +77,6 @@
 		<div class="relative w-full max-w-2xl overflow-y-auto z-[52] max-h-full">
 			<div class="relative bg-white rounded-lg shadow dark:bg-darkmode-400">
 				<div class="flex items-start justify-between p-4 rounded-t dark:border-gray-600">
-					<h3 class="text-xl font-semibold text-gray-900 dark:text-white">{product.name}</h3>
 					<button
 						type="button"
 						on:click={() => (hiddenModal = true)}

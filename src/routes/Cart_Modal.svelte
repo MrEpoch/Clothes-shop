@@ -6,7 +6,7 @@
 </script>
 
 <div class="relative z-10" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
-	<div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+  <button on:click={showCart} class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
 	<div class="fixed inset-0 overflow-hidden">
 		<div class="absolute inset-0 overflow-hidden">
 			<div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full sm:pl-10">

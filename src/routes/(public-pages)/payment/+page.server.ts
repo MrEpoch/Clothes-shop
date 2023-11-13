@@ -4,7 +4,7 @@ import { makeOrder } from '$lib/order';
 import { countries } from './countries';
 
 export const actions: Actions = {
-	default: async ({ request }) => {
+	default: async ({ request, url }) => {
 		const data = await request.formData();
 
 		const standardString = z.string().min(2);
@@ -60,7 +60,8 @@ export const actions: Actions = {
 				city.data,
 				postalcode.data,
 				name.data,
-				orderId
+				orderId,
+        url
             );
             if (order && order.notfound) {
                 return fail(400, { message: 'Order failed', failed: true, empty: order.notfound });
